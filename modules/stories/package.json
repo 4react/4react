@@ -1,0 +1,38 @@
+{
+  "name": "@4react/stories",
+  "version": "2020.2.0-alpha.1",
+  "author": "Matteo Zanoncello",
+  "license": "MIT",
+  "homepage": "https://github.com/4react/4react",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "@types/styled-components": "^5.1.2",
+    "babel-loader": "^8.1.0",
+    "react": "^16.13.1",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "styled-components": "^5.1.1",
+    "ts-loader": "^8.0.2"
+  },
+  "peerDependencies": {
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "@types/styled-components": "^5.1.2",
+    "babel-loader": "^8.1.0",
+    "react": "^16.13.1",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "styled-components": "^5.1.1",
+    "ts-loader": "^8.0.2"
+  }
+}

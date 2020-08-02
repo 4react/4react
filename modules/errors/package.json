@@ -1,0 +1,23 @@
+{
+  "_name": "errors",
+  "name": "@4react/errors",
+  "version": "2020.2.0-alpha.1",
+  "author": "Matteo Zanoncello",
+  "license": "MIT",
+  "homepage": "https://github.com/4react/errors",
+  "main": "dist/index.js",
+  "types": "dist",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "story": "start-storybook -s .storybook/assets"
+  },
+  "dependencies": {
+    "react": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  }
+}
