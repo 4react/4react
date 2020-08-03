@@ -26,12 +26,13 @@ const getPowerOf2 = (exponent) => {
   }
   ...
 }
+
+// Error: MyLib | getPowerOf2 : exponent must be a positive number
 ```
 
 | param | type | default | description |
 | --- | --- | --- | --- |
-| context | string &#124; string[] | - | One or more strings describing the context in which the error is thrown. |
-| message | string | - | The effective error message. |
+| contextAndMessage | ...string[] | - | One or more strings describing the context in which the error is thrown and its message. |
 
 ## Try
 Use the `Try` component to wrap your application (or a portion of it)

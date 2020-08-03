@@ -6,7 +6,7 @@ const StoryError = errorsFor('@4react/story')
 
 const ErrorsForStory = () => {
   const handleClick = () => {
-    throw new StoryError(['ErrorsForStory', 'handleClick'], 'Custom error message')
+    throw new StoryError('ErrorsForStory', 'handleClick', 'Custom error message')
   }
 
   return (

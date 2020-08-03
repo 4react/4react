@@ -1,8 +1,9 @@
 export const errorsFor = (moduleName: string) => (
   class extends Error {
-    constructor(context: string | string[], message: string) {
-      const contextItems: string[] = Array.isArray(context) ? context : [context]
-      super(`${moduleName} | ${contextItems.join(' > ')} : ${message}`)
+    constructor(...contextAndMessage: string[]) {
+      const context = contextAndMessage.slice(0, -1).join(' > ')
+      const message = contextAndMessage[contextAndMessage.length - 1]
+      super(`${moduleName} | ${context} : ${message}`)
     }
   }
 )
