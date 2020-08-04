@@ -1,7 +1,7 @@
 {
   "_name": "eslint-config",
   "name": "@4react/eslint-config",
-  "version": "2020.2.0-alpha.1",
+  "version": "2020.2.0-alpha",
   "author": "Matteo Zanoncello",
   "license": "MIT",
   "homepage": "https://github.com/4react/4react",
