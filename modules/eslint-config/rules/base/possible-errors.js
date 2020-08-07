@@ -59,7 +59,7 @@ module.exports = {
     // disallow calling global object properties as functions
     'no-obj-calls': 'error',
     // disallow returning values from Promise executor functions
-    '	no-promise-executor-return': 'warn',
+    // 'no-promise-executor-return': 'warn', // TODO: check conflicts
     // disallow calling some Object.prototype methods directly on objects
     'no-prototype-builtins': 'error',
     // disallow multiple spaces in regular expressions

@@ -1,21 +1,12 @@
-import React from 'react'
+import { CSSProperties } from 'react'
 import styled from 'styled-components'
+import adaptSize from '../utils/adaptSize'
 
 export interface StorySpaceProps {
-  width: number | string,
-  height: number | string,
-  className: string
-  style: object
-}
-
-const adaptSize = (size?: number | string) => {
-  if (size) {
-    if (typeof size === 'number') {
-      return `${size}px`
-    }
-    return size
-  }
-  return '100%'
+  width?: number | string
+  height?: number | string
+  className?: string
+  style?: CSSProperties
 }
 
 export const StorySpace = styled.div<StorySpaceProps>`
@@ -25,5 +16,10 @@ export const StorySpace = styled.div<StorySpaceProps>`
   height: ${p => adaptSize(p.height)};
   background-color: transparent;
 `
+
+StorySpace.defaultProps = {
+  width: 1,
+  height: 1
+}
 
 export default StorySpace

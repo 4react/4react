@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires,@typescript-eslint/no-require-imports */
 const fs = require('fs')
 const path = require('path')
+const multi = require('@rollup/plugin-multi-entry')
 const commonjs = require('rollup-plugin-commonjs')
 const postcss = require('rollup-plugin-postcss')
-// const { eslint } = require('rollup-plugin-eslint')
 const typescript = require('rollup-plugin-typescript2')
 const dts = require('rollup-plugin-dts').default
 const del = require('rollup-plugin-delete')
@@ -10,10 +11,10 @@ const del = require('rollup-plugin-delete')
 const appDirectory = fs.realpathSync(process.cwd())
 const pkg = require(path.resolve(appDirectory, 'package.json'))
 const globalLibs = Object.keys(pkg.dependencies || {})
-const externalLibs = Object.keys(pkg.peedDependencies || {})
+const externalLibs = Object.keys(pkg.peerDependencies || {})
 
 const buildConfig = {
-  input: 'src/index.ts',
+  input: ['src/**/*.ts', 'src/**/*.tsx'],
   output: [{
     file: 'dist/index.js',
     format: 'umd',
@@ -26,6 +27,7 @@ const buildConfig = {
     name: pkg.name
   }],
   plugins: [
+    multi(),
     del({ targets: 'dist', hook: 'buildStart' }),
     postcss({
       modules: true
@@ -53,11 +55,12 @@ const buildConfig = {
 }
 
 const dtsConfig = {
-  input: 'dist/types/index.d.ts',
+  input: ['dist/types/**/*.d.ts'],
   output: [{ file: 'dist/index.d.ts', format: 'es' }],
   plugins: [
+    multi(),
     dts(),
-    del({ targets: 'dist/types', hook: 'buildEnd' }),
+    del({ targets: 'dist/types', hook: 'buildEnd' })
   ]
 }
 

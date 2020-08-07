@@ -15,6 +15,7 @@ module.exports = {
     'no-extra-parens': 'off',
     'no-magic-numbers': 'off',
     'import/no-namespace': 'off',
+    'no-unused-expression': 'off',
     'no-unused-vars': 'off',
     'no-use-before-define': 'off',
     'no-useless-constructor': 'off',
@@ -29,7 +30,7 @@ module.exports = {
     // Disallows awaiting a value that is not a Thenable
     "@typescript-eslint/await-thenable": "off",
     // Bans // @ts-<directive> comments from being used or requires descriptions after directive
-    '@typescript-eslint/ban-ts-ignore': 'warn',
+    // '@typescript-eslint/ban-ts-ignore': 'warn', // TODO: check conflicts
     // Bans // tslint:<rule-flag> comments from being used
     '@typescript-eslint/ban-tslint-comment': 'error',
     // @typescript-eslint/ban-tslint-comment
@@ -117,7 +118,7 @@ module.exports = {
     // Warns if a type assertion does not change the type of an expression
     '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
     // Disallows assigning any to variables and properties
-    '@typescript-eslint/no-unsafe-assignment': 'warn',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
     // Disallows calling an any type value
     '@typescript-eslint/no-unsafe-call': 'off',
     // Disallows member access on any typed variables
@@ -202,7 +203,7 @@ module.exports = {
     // Disallow generic Array constructors
     '@typescript-eslint/no-array-constructor': 'error',
     // Disallow duplicate class members
-    '@typescript-eslint/no-dupe-class-member': 'error',
+    // '@typescript-eslint/no-dupe-class-member': 'error', // TODO: check conflicts
     // Disallow empty functions
     '@typescript-eslint/no-empty-function': 'warn',
     // Disallow unnecessary parentheses
@@ -216,7 +217,7 @@ module.exports = {
     // Disallow magic numbers
     "@typescript-eslint/no-magic-numbers": "off",
     // Disallow unused expressions
-    '@typescript-eslint/no-unused-expression': 'warn',
+    // '@typescript-eslint/no-unused-expression': 'warn', // TODO: check conflicts
     // Disallow unused variables
     '@typescript-eslint/no-unused-vars': 'warn',
     // Disallow the use of variables before they are defined

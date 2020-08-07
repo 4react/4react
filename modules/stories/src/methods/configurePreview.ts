@@ -1,5 +1,5 @@
 import { withKnobs } from '@storybook/addon-knobs'
-import { DecoratorFunction } from '@storybook/addons/dist/types'
+import { DecoratorFunction } from '@storybook/addons'
 import { addDecorator, addParameters } from '@storybook/react'
 
 export interface PreviewConfigOptions {

@@ -1,0 +1,8 @@
+{
+  "samples": {
+    "basic": "This is a simple line",
+    "text-numeric-fillers": "Hi, my name's {{name}} and I'm {{age}} years old",
+    "components-fillers": "{{component}} and {{otherComponent}} are both components"
+  },
+  "text": "text"
+}

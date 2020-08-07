@@ -36,7 +36,10 @@ module.exports = {
     /* disallow unsupported ECMAScript built-ins on the specified version */
     // 'node/no-unsupported-features/es-builtins': 'error',
     /* disallow unsupported ECMAScript syntax on the specified version */
-    // 'node/no-unsupported-features/es-syntax': ['error', { ignores: [] }],
+    'node/no-unsupported-features/es-syntax': ['error', {
+      version: ">=12.0.0",
+      ignores: ["modules"]
+    }],
     /* disallow unsupported Node.js built-in APIs on the specified version */
     // 'node/no-unsupported-features/node-builtins': 'error',
     /* make process.exit() expressions the same code path as throw */

@@ -1,0 +1,23 @@
+{
+  "name": "@4react/router",
+  "version": "2020.2.0-alpha",
+  "author": "Matteo Zanoncello",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "types": "dist/types",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "story": "start-storybook"
+  },
+  "dependencies": {
+    "@4react/errors": "^2020.2.0-alpha",
+    "react": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  }
+}

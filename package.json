@@ -12,7 +12,26 @@
     "@4react/state": "2020.2.0-alpha",
     "@4react/store": "2020.2.0-alpha",
     "@4react/stories": "2020.2.0-alpha",
+    "@types/classnames": "^2.2.10",
     "@types/node": "^14.0.26",
-    "@types/webpack": "^4.41.21"
+    "@types/webpack": "^4.41.21",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
+    "babel-eslint": "^10.1.0",
+    "confusing-browser-globals": "^1.0.9",
+    "eslint": "^7.5.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "^30.0.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "react": "^16.13.1",
+    "typescript": "^3.9.7",
+    "typescript-plugin-css-modules": "^2.4.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   }
 }

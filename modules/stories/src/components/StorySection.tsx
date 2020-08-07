@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { CSSProperties, FC } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -13,8 +13,8 @@ const Title = styled.span`
 
 export interface StorySectionProps {
   title: string
-  className: string
-  style: object
+  className?: string
+  style?: CSSProperties
 }
 
 export const StorySection: FC<StorySectionProps> = props => {

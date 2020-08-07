@@ -283,7 +283,7 @@ module.exports = {
     // require or disallow padding lines between statements
     'padding-line-between-statements': 'off',
     // disallow the use of `Math.pow` in favor of the `**` operator
-    '	prefer-exponentiation-operator': 'warn',
+    '	prefer-exponentiation-operator': 'off',
     // disallow using Object.assign with an object literal as the first argument and prefer the use of object spread instead
     'prefer-object-spread': 'error',
     // require quotes around object literal property names

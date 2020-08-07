@@ -3,15 +3,22 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   env: {
+    es6: true,
     node: true
   },
   parserOptions: {
+    ecmaVersion: 2018,
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
+      modules: true
     },
+    sourceType: 'module',
     project: './tsconfig.json'
   },
   settings: {
+    'node': {
+      tryExtensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.sass', '.scss']
+    },
     'import/resolver': {
       node: {
         paths: ['src'],

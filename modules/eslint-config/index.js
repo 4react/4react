@@ -12,6 +12,9 @@ module.exports = {
     }
   },
   settings: {
+    'node': {
+      tryExtensions: ['.js', '.jsx', '.json']
+    },
     'import/resolver': {
       node: {
         paths: ['src'],

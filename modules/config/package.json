@@ -24,6 +24,7 @@
     "declarations"
   ],
   "dependencies": {
+    "@rollup/plugin-multi-entry": "^3.0.1",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "rollup": "^1.26.3",
@@ -35,6 +36,7 @@
     "rollup-plugin-typescript2": "^0.25.2"
   },
   "peerDependencies": {
+    "@rollup/plugin-multi-entry": "^3.0.1",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "rollup": "^1.26.3",
