@@ -1,0 +1,25 @@
+{
+  "name": "@4react/syntax",
+  "version": "2020.2.0-alpha",
+  "author": "Matteo Zanoncello",
+  "license": "MIT",
+  "homepage": "https://github.com/4react/4react",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "react": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@4react/config": "2020.2.0-alpha"
+  }
+}
