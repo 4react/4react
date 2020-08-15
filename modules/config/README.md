@@ -10,7 +10,6 @@ npm i -D @4react/config
 #### Compile `package.json`
 ```
 {
-  "_name": "<name>",
   "name": "@<scope>/<name>",
   "version": "<version>",
   "author": "<author>",
@@ -20,10 +19,12 @@ npm i -D @4react/config
   "module": "dist/index.module.js",
   "types": "dist",
   "files": [
-    "dist"
+    "dist",
+    "package.json"
   ],
   "scripts": {
-    "build": "rimraf dist && webpack"
+    "build": "rollup -c"
+    "story": "start-storybook -s .storybook/assets"
   }
 }
 ```
@@ -31,18 +32,11 @@ npm i -D @4react/config
 #### Add `tsconfig.json`
 ```json
 {
-  "extends": "@4react/config/tsconfig.json",
-  "compilerOptions": {
-    "outDir": "dist"
-  },
-  "include": [
-    "src"
-  ]
+  "extends": "@4react/config/tsconfig.json"
 }
-
 ```
 
-#### Add `webpack.preview.js`
+#### Add `rollup.config.js`
 ```js
-module.exports = require('modules/config/webpack/webpack.preview.js')
+export { default } from '@4react/config/rollup'
 ```

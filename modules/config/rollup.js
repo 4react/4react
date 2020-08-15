@@ -1,64 +1,45 @@
-/* eslint-disable @typescript-eslint/no-var-requires,@typescript-eslint/no-require-imports */
-const fs = require('fs')
-const path = require('path')
-const multi = require('@rollup/plugin-multi-entry')
-const commonjs = require('rollup-plugin-commonjs')
-const postcss = require('rollup-plugin-postcss')
-const typescript = require('rollup-plugin-typescript2')
-const dts = require('rollup-plugin-dts').default
+/* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports */
 const del = require('rollup-plugin-delete')
-
-const appDirectory = fs.realpathSync(process.cwd())
-const pkg = require(path.resolve(appDirectory, 'package.json'))
-const globalLibs = Object.keys(pkg.dependencies || {})
-const externalLibs = Object.keys(pkg.peerDependencies || {})
+const peerDepsExternal = require('rollup-plugin-peer-deps-external')
+const { nodeResolve } = require('@rollup/plugin-node-resolve')
+const commonjs = require('@rollup/plugin-commonjs')
+const typescript = require('@rollup/plugin-typescript')
+const postcss = require('rollup-plugin-postcss')
+const dts = require('rollup-plugin-dts').default
 
 const buildConfig = {
-  input: ['src/**/*.ts', 'src/**/*.tsx'],
-  output: [{
-    file: 'dist/index.js',
-    format: 'umd',
-    globals: globalLibs,
-    name: pkg.name
-  }, {
-    file: 'dist/index.module.js',
-    format: 'es',
-    globals: globalLibs,
-    name: pkg.name
-  }],
+  input: 'src/index.ts',
+  output: { dir: 'dist' },
   plugins: [
-    multi(),
     del({ targets: 'dist', hook: 'buildStart' }),
-    postcss({
-      modules: true
+    peerDepsExternal(),
+    nodeResolve(),
+    commonjs({
+      requireReturnsDefault: false,
+      esmExternals: false,
+      include: 'node_modules/**'
     }),
     typescript({
-      clean: true,
-      typescript: require('typescript'),
-      verbosity: 0,
-      useTsconfigDeclarationDir: true,
-      tsconfigOverride: {
-        compilerOptions: {
-          module: 'es2015',
-          declarationDir: 'dist/types'
-        },
-        include: [
-          'src/index.ts'
-        ]
-      }
+      target: 'es5',
+      lib: ['es5', 'es6', 'dom'],
+      declaration: true,
+      declarationDir: 'dist/types',
+      sourceMap: false,
+      rootDir: 'src',
+      outDir: 'dist'
     }),
-    commonjs({
-      include: 'node_modules/**'
+    postcss({
+      extract: false,
+      modules: true,
+      use: ['sass']
     })
-  ],
-  external: externalLibs
+  ]
 }
 
-const dtsConfig = {
-  input: ['dist/types/**/*.d.ts'],
-  output: [{ file: 'dist/index.d.ts', format: 'es' }],
+const dtsBundlerConfig = {
+  input: 'dist/types/index.d.ts',
+  output: [{ file: 'dist/index.d.ts' }],
   plugins: [
-    multi(),
     dts(),
     del({ targets: 'dist/types', hook: 'buildEnd' })
   ]
@@ -66,5 +47,5 @@ const dtsConfig = {
 
 module.exports = [
   buildConfig,
-  dtsConfig
+  dtsBundlerConfig
 ]
