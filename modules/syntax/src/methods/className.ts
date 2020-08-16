@@ -10,8 +10,9 @@ export type ConditionalClass = [string, boolean]
  * *   ['bar', barCondition]
  * * )
  */
-export const className = (...names: (string | ConditionalClass)[]): string => (
+export const className = (...names: (string | ConditionalClass | undefined)[]): string => (
   (names || [])
+    .filter(name => name !== undefined)
     .map(item => {
       if (typeof item === 'string') {
         return item
