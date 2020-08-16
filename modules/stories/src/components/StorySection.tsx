@@ -26,5 +26,3 @@ export const StorySection: FC<StorySectionProps> = props => {
     </Container>
   )
 }
-
-export default StorySection

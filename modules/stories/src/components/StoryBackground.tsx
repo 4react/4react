@@ -27,5 +27,3 @@ StoryBackground.defaultProps = {
   fullscreen: false,
   color: BackgroundPlaceholder
 }
-
-export default StoryBackground

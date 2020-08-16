@@ -3,29 +3,23 @@ import { DecoratorFunction } from '@storybook/addons'
 import { addDecorator, addParameters } from '@storybook/react'
 
 export interface PreviewConfigOptions {
-  name?: string
   decorators?: DecoratorFunction<any>[]
 }
 
-export const configurePreview = (options: PreviewConfigOptions) => {
+export const configurePreview = <StoryFnReturnType = unknown>(options: PreviewConfigOptions) => {
   const {
-    name = '',
     decorators = []
   } = options
 
   // decorators
   addDecorator(withKnobs)
   decorators.forEach(decorator => {
+    // @ts-ignore
     addDecorator(decorator)
   })
 
   // parameters
   addParameters({
-    options: {
-      name: name,
-      showPanel: true,
-      panelPosition: 'right'
-    },
     knobs: {
       escapeHTML: false
     }

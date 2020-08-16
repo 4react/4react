@@ -1,10 +1,10 @@
+import { parseSize, Size } from '@4react/syntax'
 import { CSSProperties, FC } from 'react'
 import styled from 'styled-components'
-import adaptSize from '../utils/adaptSize'
 import { AreaPlaceholder, TextPlaceholder } from '../utils/style'
 
 export interface StoryAreaProps {
-  width?: number | string
+  width?: Size
   height?: number | string
   className?: string
   style?: CSSProperties
@@ -13,14 +13,15 @@ export interface StoryAreaProps {
 export const StoryArea: FC<StoryAreaProps> = styled.div<StoryAreaProps>`
   position: relative;
   display: inline-flex;
-  width: ${p => adaptSize(p.width || 0)};
-  height: ${p => adaptSize(p.height || 0)};
+  width: ${p => parseSize(p.width || '100%')};
+  height: ${p => parseSize(p.height || '100%')};
   background-image: ${AreaPlaceholder};
   background-size: 56.57px 56.57px;
   justify-content: center;
   align-items: center;
   color: ${TextPlaceholder};
   overflow: hidden;
+  user-select: none;
+  font-family: Arial,serif;
+  font-size: 14px;
 `
-
-export default StoryArea

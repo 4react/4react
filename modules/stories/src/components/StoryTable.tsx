@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
+import { parseSize, Size } from '@4react/syntax'
 import React, { CSSProperties, FC } from 'react'
 import styled, { css } from 'styled-components'
-import adaptSize from '../utils/adaptSize'
 
 const Container = styled.table<{ fullscreen?: boolean }>`
   border: 1px solid lightgray;
@@ -22,7 +22,7 @@ const Heading = styled.th`
 
 const Space = styled.td`
   height: 0;
-  width: ${p => adaptSize(p.width)};
+  width: ${p => parseSize(p.width)};
 `
 
 const Content = styled.td`
@@ -32,7 +32,7 @@ const Content = styled.td`
 export interface StoryTableProps {
   fullscreen?: boolean
   headings: string[]
-  widths?: (string | number)[]
+  widths?: (Size)[]
   data: any[][]
   className?: string
   style?: CSSProperties

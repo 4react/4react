@@ -14,10 +14,11 @@
     "build": "rollup -c"
   },
   "dependencies": {
-    "@storybook/addons": "^5.3.19",
-    "@storybook/addon-actions": "^5.3.19",
-    "@storybook/addon-knobs": "^5.3.19",
-    "@storybook/react": "^5.3.19",
+    "@4react/syntax": "2020.2.0-alpha",
+    "@storybook/addons": "^6.0.10",
+    "@storybook/addon-actions": "^6.0.10",
+    "@storybook/addon-knobs": "^6.0.10",
+    "@storybook/react": "^6.0.10",
     "@storybook/preset-scss": "^1.0.2",
     "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
@@ -32,9 +33,11 @@
     "sass-loader": "^9.0.3"
   },
   "peerDependencies": {
-    "@storybook/addon-actions": "^5.3.19",
-    "@storybook/addon-knobs": "^5.3.19",
-    "@storybook/react": "^5.3.19",
+    "@4react/syntax": "2020.2.0-alpha",
+    "@storybook/addons": "^6.0.10",
+    "@storybook/addon-actions": "^6.0.10",
+    "@storybook/addon-knobs": "^6.0.10",
+    "@storybook/react": "^6.0.10",
     "@storybook/preset-scss": "^1.0.2",
     "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
