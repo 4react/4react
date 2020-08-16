@@ -12,7 +12,7 @@ module.exports = {
       'ignore': ['\\.storybook']
     }],
     // ensure named imports correspond to a named export in the remote file
-    'import/named': 'error',
+    'import/named': 'off',
     // ensure a default export is present, given a default import
     'import/default': 'error',
     // ensure imported namespaces contain dereferenced properties as they are dereferenced

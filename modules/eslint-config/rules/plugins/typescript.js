@@ -213,7 +213,7 @@ module.exports = {
     // disallow this keywords outside of classes or class-like objects
     '@typescript-eslint/no-invalid-this': 'off',
     // Disallow literal numbers that lose precision
-    '@typescript-eslint/no-loss-of-precision': 'warn',
+    // '@typescript-eslint/no-loss-of-precision': 'warn',
     // Disallow magic numbers
     "@typescript-eslint/no-magic-numbers": "off",
     // Disallow unused expressions

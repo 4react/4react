@@ -53,7 +53,7 @@ module.exports = {
     // disallow irregular whitespace
     'no-irregular-whitespace': 'error',
     // disallow literal numbers that lose precision
-    'no-loss-of-precision': 'warn',
+    // 'no-loss-of-precision': 'warn',
     // disallow characters which are made with multiple code points in character class syntax
     'no-misleading-character-class': 'error',
     // disallow calling global object properties as functions
