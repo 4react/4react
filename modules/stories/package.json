@@ -15,6 +15,7 @@
     "story": "start-storybook -s ./.storybook/assets"
   },
   "dependencies": {
+    "@4react/flex": "2020.2.0-alpha",
     "@4react/syntax": "2020.2.0-alpha",
     "@storybook/addons": "^6.0.10",
     "@storybook/addon-actions": "^6.0.10",
@@ -34,6 +35,7 @@
     "sass-loader": "^9.0.3"
   },
   "peerDependencies": {
+    "@4react/flex": "2020.2.0-alpha",
     "@storybook/addons": "^6.0.10",
     "@storybook/addon-actions": "^6.0.10",
     "@storybook/addon-knobs": "^6.0.10",

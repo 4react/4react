@@ -13,7 +13,9 @@ export const StorySection: FC<StorySectionProps> = props => {
   return (
     <div className={classList(styles.container, className)} style={style}>
       <span className={styles.title}>{title}</span>
-      {children}
+      <div className={styles.content}>
+        {children}
+      </div>
     </div>
   )
 }

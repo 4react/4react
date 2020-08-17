@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-export const withGlobalStyle = () => (Story: any) => (
+export const withGlobalStyle = (Story: any) => (
   <>
     <GlobalStyle />
     <Story />

@@ -1,18 +1,22 @@
-import { number } from '@storybook/addon-knobs'
+import { text } from '@storybook/addon-knobs'
 import React from 'react'
 import { StoryArea } from './StoryArea'
 import { StoryBackground } from '../..'
+import { size } from '../../knobs/size'
 
 export default { title: 'StoryArea' }
 
 export const Basic = () => {
   const props = {
-    width: number('width', 4, { min: 0 }, 'props'),
-    height: number('height', 4, { min: 0 }, 'props')
+    width: size('width', 4, 'props'),
+    height: size('height', 4, 'props')
   }
+  const content = text('content', '', 'props')
   return (
     <StoryBackground>
-      <StoryArea {...props} />
+      <StoryArea {...props}>
+        {content}
+      </StoryArea>
     </StoryBackground>
   )
 }

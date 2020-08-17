@@ -11,7 +11,7 @@ export const Basic = () => {
   }
   return (
     <StoryBackground {...props}>
-      <StoryArea width={4} height={4} />
+      <StoryArea width="fill" height={4} />
     </StoryBackground>
   )
 }
