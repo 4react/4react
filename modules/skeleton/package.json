@@ -1,0 +1,28 @@
+{
+  "name": "@4react/skeleton",
+  "version": "2020.2.0-alpha",
+  "author": "Matteo Zanoncello",
+  "license": "MIT",
+  "homepage": "https://github.com/4react/4react",
+  "main": "dist/index.js",
+  "types": "dist",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "story": "start-storybook -s .storybook/assets"
+  },
+  "dependencies": {
+    "@4react/flex": "2020.2.0-alpha",
+    "@4react/syntax": "2020.2.0-alpha",
+    "react": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-knobs": "^6.0.10",
+    "@4react/stories": "2020.2.0-alpha"
+  }
+}
