@@ -19,6 +19,7 @@ export const styleList = (...styles: (CSSProperties | ConditionalStyle | undefin
         if ((item as [CSSProperties, boolean])[1]) {
           return (item as [CSSProperties, boolean])[0]
         }
+        return undefined
       }
       return item as CSSProperties
     })
