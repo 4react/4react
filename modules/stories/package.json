@@ -5,7 +5,7 @@
   "license": "MIT",
   "homepage": "https://github.com/4react/4react",
   "main": "dist/index.js",
-  "module": "dist/index.module.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -33,7 +33,6 @@
     "sass-loader": "^9.0.3"
   },
   "peerDependencies": {
-    "@4react/syntax": "2020.2.0-alpha",
     "@storybook/addons": "^6.0.10",
     "@storybook/addon-actions": "^6.0.10",
     "@storybook/addon-knobs": "^6.0.10",

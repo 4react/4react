@@ -1,15 +1,6 @@
+import { classList } from '@4react/syntax'
 import React, { CSSProperties, FC } from 'react'
-import styled from 'styled-components'
-
-const Container = styled.div`
-  text-align: center;
-  margin: 20px auto;
-`
-
-const Title = styled.span`
-  font-weight: bold;
-  font-size: 25px;
-`
+import styles from './StorySection.sass'
 
 export interface StorySectionProps {
   title: string
@@ -20,9 +11,9 @@ export interface StorySectionProps {
 export const StorySection: FC<StorySectionProps> = props => {
   const { title, className, style, children } = props
   return (
-    <Container className={className} style={style}>
-      <Title>{title}</Title>
+    <div className={classList(styles.container, className)} style={style}>
+      <span className={styles.title}>{title}</span>
       {children}
-    </Container>
+    </div>
   )
 }
