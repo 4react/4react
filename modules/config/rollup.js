@@ -5,19 +5,20 @@ const { nodeResolve } = require('@rollup/plugin-node-resolve')
 const commonjs = require('@rollup/plugin-commonjs')
 const typescript = require('@rollup/plugin-typescript')
 const postcss = require('rollup-plugin-postcss')
+const { terser } = require('rollup-plugin-terser')
 const dts = require('rollup-plugin-dts').default
 
 const buildConfig = {
   input: 'src/index.ts',
-  output: { dir: 'dist' },
+  output: { dir: 'dist', format: 'esm', sourceMap: true },
   plugins: [
     del({ targets: 'dist', hook: 'buildStart' }),
     peerDepsExternal(),
     nodeResolve(),
     commonjs({
-      requireReturnsDefault: false,
-      esmExternals: false,
-      include: 'node_modules/**'
+      // requireReturnsDefault: false,
+      // // esmExternals: false,
+      // include: /node_modules/
     }),
     typescript({
       target: 'es5',
@@ -32,7 +33,8 @@ const buildConfig = {
       extract: false,
       modules: true,
       use: ['sass']
-    })
+    }),
+    terser()
   ]
 }
 

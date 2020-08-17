@@ -27,26 +27,36 @@
     "@rollup/plugin-node-resolve": "^8.4.0",
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-typescript": "^5.0.2",
+    "@storybook/react": "^6.0.10",
+    "@storybook/addons": "^6.0.10",
+    "@storybook/addon-knobs": "^6.0.10",
     "postcss-sass": "^0.4.4",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "rollup": "^2.23.1",
+    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-dts": "^1.4.9",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.3",
-    "rollup-plugin-postcss": "^2.0.3"
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-terser": "^7.0.0"
   },
   "peerDependencies": {
     "@rollup/plugin-node-resolve": "^8.4.0",
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-typescript": "^5.0.2",
+    "@storybook/react'": "^6.0.10",
+    "@storybook/addons": "^6.0.10",
+    "@storybook/addon-knobs": "^6.0.10",
     "postcss-sass": "^0.4.4",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "rollup": "^2.23.1",
+    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-dts": "^1.4.9",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.3",
-    "rollup-plugin-postcss": "^2.0.3"
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-terser": "^7.0.0"
   }
 }
