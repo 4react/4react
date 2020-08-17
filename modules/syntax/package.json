@@ -5,6 +5,7 @@
   "license": "MIT",
   "homepage": "https://github.com/4react/4react",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -14,9 +15,6 @@
     "build": "rollup -c"
   },
   "dependencies": {
-    "react": "^16.13.1"
-  },
-  "peerDependencies": {
     "react": "^16.13.1"
   },
   "devDependencies": {
