@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC } from 'react'
-import { classList, styleList } from '@4react/syntax'
+import { classList } from '@4react/syntax'
 import styles from './StoryBackground.sass'
 
 export interface StoryBackgroundProps {
@@ -17,11 +17,12 @@ export const StoryBackground: FC<StoryBackgroundProps> = props => {
   } = props
   return (
     <div
-      className={classList(styles.container, className)}
-      style={styleList(
-        [{ padding: '2em' }, fullscreen],
-        style
+      className={classList(
+        styles.container,
+        [styles.fullscreen, fullscreen],
+        className
       )}
+      style={style}
     >
       {children}
     </div>
