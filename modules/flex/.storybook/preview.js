@@ -1,5 +1,3 @@
-import { configurePreview } from '@4react/stories'
+const { configurePreview } = require('@4react/config/storybook')
 
-configurePreview({
-  name: '@4react/flex'
-})
+configurePreview()

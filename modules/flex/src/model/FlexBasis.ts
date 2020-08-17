@@ -1,10 +1,8 @@
-export enum FlexBasis {
+import { Size } from '@4react/syntax'
+
+export enum FlexBasisSpecialValue {
   AUTO = 'auto',
   CONTENT = 'content',
 }
 
-export const flexBasis = (basis: FlexBasis = FlexBasis.AUTO): string | null => {
-  return basis
-}
-
-export default FlexBasis
+export type FlexBasis = Size | FlexBasisSpecialValue

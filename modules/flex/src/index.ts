@@ -1,6 +1,4 @@
-// components
-export * from './components/Flex'
-// model
+export * from './components/Flex/Flex'
 export * from './model/FlexAlign'
 export * from './model/FlexBasis'
 export * from './model/FlexDirection'

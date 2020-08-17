@@ -1,0 +1,85 @@
+.flex
+  box-sizing: border-box
+
+  // display
+
+  display: flex
+  &.inline
+    display: inline-flex
+
+  // direction
+
+  &.row
+    flex-direction: row
+    &.reverse
+      flex-direction: row-reverse
+  &.column
+    flex-direction: column
+    &.reverse
+      flex-direction: column-reverse
+
+  // justify
+
+  &.justify-start
+    justify-content: flex-start
+  &.justify-end
+    justify-content: flex-end
+  &.justify-center
+    justify-content: center
+  &.justify-space-between
+    justify-content: space-between
+  &.justify-space-around
+    justify-content: space-around
+  &.justify-space-evenly
+    justify-content: space-evenly
+
+  // align
+
+  &.align-stretch
+    align-items: stretch
+  &.align-start
+    align-items: flex-start
+  &.align-end
+    align-items: flex-end
+  &.align-center
+    align-items: center
+  &.align-baseline
+    align-items: baseline
+
+  // lines
+
+  &.lines-stretch
+    align-content: stretch
+  &.lines-start
+    align-content: flex-start
+  &.lines-end
+    align-content: flex-end
+  &.lines-center
+    align-content: center
+  &.lines-space-between
+    align-content: space-between
+  &.lines-space-around
+    align-content: space-around
+  &.lines-space-evenly
+    align-content: space-evenly
+
+  // wrap
+
+  flex-wrap: nowrap
+  &.wrap
+    flex-wrap: wrap
+  &.wrap-reverse
+    flex-wrap: wrap-reverse
+
+  // align-self
+
+  &.align-self-stretch
+    align-self: stretch
+  &.align-self-start
+    align-self: flex-start
+  &.align-self-end
+    align-self: flex-end
+  &.align-self-center
+    align-self: center
+  &.align-self-baseline
+    align-self: baseline

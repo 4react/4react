@@ -1,5 +1,5 @@
-const { configureMain } = require('@4react/stories')
+const { configureMain } = require('@4react/config/storybook')
 
 module.exports = configureMain({
-  stories: ['./stories/stories.js']
+  stories: ['./stories.js']
 })
