@@ -13,7 +13,7 @@ export interface BoxValueMap<T> {
   bottom?: T
 }
 
-const instanceOfBoxValueMap = (value: any) => (
+const instanceOfBoxValueMap = (value: any): boolean => (
   typeof value === 'object'
   && (
     'base' in value

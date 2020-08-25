@@ -1,4 +1,5 @@
-export * from './methods/classList'
-export * from './methods/styleList'
+export * from './model/BoundedValue'
 export * from './model/BoxValue'
 export * from './model/Size'
+export * from './props/ClassProp'
+export * from './props/StyleProp'
