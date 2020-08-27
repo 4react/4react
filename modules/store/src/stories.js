@@ -1,9 +1,12 @@
 import React, { createRef } from 'react'
-import { storiesOf } from '@storybook/react'
 import { createStore } from './methods/createStore'
 
+export default {
+  title: 'store/createStore'
+}
+
 const reducer = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'ADD_TODO':
       return [...state, action.payload]
     case 'REMOVE_TODO':
@@ -22,7 +25,7 @@ const AddTodo = () => {
   const addTodo = () => {
     if (input && input.current && input.current.value) {
       dispatch({ type: 'ADD_TODO', payload: input.current.value })
-      input.current.value = ""
+      input.current.value = ''
     }
   }
 
@@ -57,14 +60,9 @@ const Todos = () => {
   )
 }
 
-const TodoListStory = () => {
-  return (
-    <Store>
-      <AddTodo />
-      <Todos />
-    </Store>
-  )
-}
-
-storiesOf('stories/.', module)
-  .add('Todo List', TodoListStory)
+export const TodoList = () => (
+  <Store>
+    <AddTodo />
+    <Todos />
+  </Store>
+)
