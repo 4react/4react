@@ -36,6 +36,7 @@ exports.configureMain = options => {
 const { addons } = require('@storybook/addons')
 const { withKnobs } = require('@storybook/addon-knobs')
 const { addDecorator, addParameters } = require('@storybook/react')
+const { create } = require('@storybook/theming/create')
 
 exports.configureManager = () => {
   addons.setConfig({
@@ -46,10 +47,33 @@ exports.configureManager = () => {
     sidebarAnimations: true,
     enableShortcuts: true,
     isToolshown: true,
-    theme: undefined,
     selectedPanel: undefined,
     initialActive: 'sidebar',
-    showRoots: false
+    showRoots: true,
+    theme: create({
+      base: 'light'
+      // colorPrimary?: string;
+      // colorSecondary?: string;
+      // appBg?: string;
+      // appContentBg?: string;
+      // appBorderColor?: string;
+      // appBorderRadius?: number;
+      // fontBase?: string;
+      // fontCode?: string;
+      // textColor?: string;
+      // textInverseColor?: string;
+      // barTextColor?: string;
+      // barSelectedColor?: string;
+      // barBg?: string;
+      // inputBg?: string;
+      // inputBorder?: string;
+      // inputTextColor?: string;
+      // inputBorderRadius?: number;
+      // brandTitle?: string;
+      // brandUrl?: string;
+      // brandImage?: string;
+      // gridCellSize?: number;
+    })
   })
 }
 

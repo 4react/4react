@@ -22,7 +22,7 @@ const buildConfig = {
     }),
     typescript({
       target: 'es5',
-      lib: ['es5', 'es6', 'dom'],
+      lib: ['es5', 'es6', 'es7', 'dom'],
       declaration: true,
       declarationDir: 'dist/types',
       sourceMap: false,
