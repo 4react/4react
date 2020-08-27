@@ -27,7 +27,6 @@ export const Basic = () => (
             <SkeletonElement width={6} height={6} radius={1} />
             <SkeletonElement grow width={12} height={6} radius={1} margin={{ left: 2 }} />
             <SkeletonElement width={6} height={6} radius={1} margin={{ left: 2 }} />
-            <SkeletonElement width={6} height={6} radius={1} margin={{ left: 2 }} />
           </Flex>
         </Flex>
       </Flex>
