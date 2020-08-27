@@ -3,6 +3,11 @@ import { boolean } from '@storybook/addon-knobs'
 import React, { useState } from 'react'
 import Try from './Try'
 
+export default {
+  component: Try,
+  title: 'errors/Try'
+}
+
 const Fallback = ({ error }) => (
   <StoryBackground>
     <span>Error fallback: {error.message}</span>
@@ -25,7 +30,7 @@ const ErrorComponent = () => {
   )
 }
 
-const TryStory = () => {
+const Basic = () => {
   const props = {
     fallback: boolean('fallback', true, 'props')
       ? error => <Fallback error={error} />
@@ -41,5 +46,3 @@ const TryStory = () => {
     </Try>
   )
 }
-
-export default TryStory

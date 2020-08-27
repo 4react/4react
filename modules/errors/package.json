@@ -3,9 +3,9 @@
   "version": "2020.2.0-alpha",
   "author": "Matteo Zanoncello",
   "license": "MIT",
-  "homepage": "https://github.com/4react/errors",
+  "homepage": "https://github.com/4react/4react",
   "main": "dist/index.js",
-  "types": "dist",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -18,5 +18,9 @@
   },
   "peerDependencies": {
     "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@4react/stories": "2020.2.0-alpha",
+    "@storybook/addon-knobs": "^6.0.10"
   }
 }
