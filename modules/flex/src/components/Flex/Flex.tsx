@@ -1,13 +1,16 @@
-import { BoxValue, classList, parseBoxValue, parseSize, Size } from '@4react/syntax'
-import React, { CSSProperties } from 'react'
-import { flexGrow, flexShrink, FlexSize } from '../../model/FlexSize'
+import {
+  BoxValue, ClassProp, parseBoxValue, parseSize, Size,
+  StyleProp, BoundedValue, parseBoundedValue, parseClassProp, parseStyleProp, parseItemOrList
+} from '@4react/syntax'
+import React, { FC } from 'react'
 import styles from './Flex.sass'
 import { FlexAlign } from '../../model/FlexAlign'
 import { FlexBasis } from '../../model/FlexBasis'
 import { FlexDirection } from '../../model/FlexDirection'
 import { FlexJustify } from '../../model/FlexJustify'
 import { FlexLineAlign } from '../../model/FlexLineAlign'
-import { FlexWrapSpecialValue, FlexWrap } from '../../model/FlexWrap'
+import { flexGrow, flexShrink, FlexSize } from '../../model/FlexSize'
+import { FlexWrap, FlexWrapSpecialValue } from '../../model/FlexWrap'
 
 const directionClass = (direction: FlexDirection, row: boolean, column: boolean): string => {
   if (column) return styles.column
@@ -21,9 +24,11 @@ const wrapClass = (wrap: FlexWrap): string | undefined => {
   return undefined
 }
 
-export type FlexProps<P> = P & {
+export interface FlexProps<P extends HTMLElement> {
   // basic
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
+  className?: ClassProp
+  style?: StyleProp
   // flex
   inline?: boolean
   direction?: FlexDirection
@@ -32,24 +37,24 @@ export type FlexProps<P> = P & {
   reverse?: boolean
   justify?: FlexJustify
   align?: FlexAlign
-  lines?: FlexLineAlign
   wrap?: FlexWrap
+  lines?: FlexLineAlign
   // flex-item
-  alignSelf?: FlexAlign
+  self?: FlexAlign
   order?: number
   grow?: FlexSize
   shrink?: FlexSize
   basis?: FlexBasis
-  // generic
-  width?: Size
-  height?: Size
+  // size
+  width?: BoundedValue<Size>
+  height?: BoundedValue<Size>
   margin?: BoxValue<Size>
   padding?: BoxValue<Size>
-  className?: string
-  style?: CSSProperties
 }
 
-export const Flex = <P extends any>(props: FlexProps<P>) => {
+export type FlexComponent<P extends HTMLElement = HTMLDivElement> = FC<FlexProps<P>>
+
+export const Flex: FlexComponent = props => {
   const {
     // basic
     as = 'div',
@@ -64,62 +69,66 @@ export const Flex = <P extends any>(props: FlexProps<P>) => {
     lines = FlexLineAlign.STRETCH,
     wrap = false,
     // flex-item
-    alignSelf,
+    self,
     order,
     grow,
     shrink,
     basis,
-    // generic
+    // size
     width,
     height,
     margin,
     padding,
-    className: customClassName,
-    style: customStyle,
+    // generic
+    className,
+    style,
     // @ts-ignore
     ...otherProps
   } = props
 
-  // return <FlexComponent as={as} {...otherProps} />
-  const classNames = classList(
-    // flex
+  const composedClassName = parseClassProp([
     styles.flex,
-    [styles.inline, inline],
+    inline && styles.inline,
     directionClass(direction, row, column),
-    [styles.reverse, reverse],
+    reverse && styles.reverse,
     styles[`justify-${justify}`],
     styles[`align-${align}`],
     styles[`lines-${lines}`],
     wrapClass(wrap),
-    // flex-item
-    styles[`align-self-${alignSelf}`],
-    customClassName
-  )
+    styles[`align-self-${self}`],
+    ...parseItemOrList(className)
+  ])
 
   const margins = parseBoxValue(margin)
   const paddings = parseBoxValue(padding)
+  const widths = parseBoundedValue(width)
+  const heights = parseBoundedValue(height)
 
-  const style = {
-    order: order,
-    ...flexGrow(grow),
-    ...flexShrink(shrink),
-    flexBasis: parseSize(basis),
-    width: parseSize(width),
-    height: parseSize(height),
-    marginTop: parseSize(margins.top),
-    marginLeft: parseSize(margins.left),
-    marginRight: parseSize(margins.right),
-    marginBottom: parseSize(margins.bottom),
-    paddingTop: parseSize(paddings.top),
-    paddingLeft: parseSize(paddings.left),
-    paddingRight: parseSize(paddings.right),
-    paddingBottom: parseSize(paddings.bottom),
-    ...customStyle
-  }
+  const composedStyle = parseStyleProp([
+    !!order && { order },
+    !!grow && flexGrow(grow),
+    !!shrink && flexShrink(shrink),
+    !!basis && { flexBasis: parseSize(basis) },
+    !!widths.base && { width: parseSize(widths.base) },
+    !!widths.min && { minWidth: parseSize(widths.min) },
+    !!widths.max && { maxWidth: parseSize(widths.max) },
+    !!heights.base && { height: parseSize(heights.base) },
+    !!heights.min && { minHeight: parseSize(heights.min) },
+    !!heights.max && { minWidth: parseSize(heights.max) },
+    !!margins.top && { marginTop: parseSize(margins.top) },
+    !!margins.left && { marginLeft: parseSize(margins.left) },
+    !!margins.right && { marginRight: parseSize(margins.right) },
+    !!margins.bottom && { marginBottom: parseSize(margins.bottom) },
+    !!paddings.top && { paddingTop: parseSize(paddings.top) },
+    !!paddings.left && { paddingLeft: parseSize(paddings.left) },
+    !!paddings.right && { paddingRight: parseSize(paddings.right) },
+    !!paddings.bottom && { paddingBottom: parseSize(paddings.bottom) },
+    ...parseItemOrList(style)
+  ])
 
   return React.createElement(as, {
-    className: classNames,
-    style: style,
+    className: composedClassName,
+    style: composedStyle,
     ...otherProps
   })
 }
