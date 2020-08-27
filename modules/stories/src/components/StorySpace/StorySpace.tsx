@@ -1,12 +1,14 @@
-import { classList, parseSize, Size, styleList } from '@4react/syntax'
-import React, { CSSProperties, FC } from 'react'
+import {
+  ClassProp, parseClassProp, parseItemOrList, parseSize, parseStyleProp, Size, StyleProp
+} from '@4react/syntax'
+import React, { FC } from 'react'
 import styles from './StorySpace.sass'
 
 export interface StorySpaceProps {
   width?: Size
   height?: Size
-  className?: string
-  style?: CSSProperties
+  className?: ClassProp
+  style?: StyleProp
 }
 
 export const StorySpace: FC<StorySpaceProps> = props => {
@@ -18,11 +20,14 @@ export const StorySpace: FC<StorySpaceProps> = props => {
   } = props
   return (
     <div
-      className={classList(styles.container, className)}
-      style={styleList(
+      className={parseClassProp([
+        styles.container,
+        ...parseItemOrList(className)
+      ])}
+      style={parseStyleProp([
         { width: parseSize(width), height: parseSize(height) },
-        style
-      )}
+        ...parseItemOrList(style)
+      ])}
     />
   )
 }

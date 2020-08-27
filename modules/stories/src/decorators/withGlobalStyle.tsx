@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     margin: 0;
     font-size: 16px;
+    font-family: Arial, sans-serif;
   }
 
   #root {

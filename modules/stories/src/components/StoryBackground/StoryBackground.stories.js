@@ -3,7 +3,7 @@ import React from 'react'
 import { StoryBackground } from './StoryBackground'
 import { StoryArea } from '../../index'
 
-export default { title: 'StoryBackground' }
+export default { title: 'stories/StoryBackground' }
 
 export const Basic = () => {
   const props = {

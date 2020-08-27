@@ -1,11 +1,11 @@
-import React, { CSSProperties, FC } from 'react'
-import { classList } from '@4react/syntax'
+import { ClassProp, parseClassProp, parseStyleProp, StyleProp } from '@4react/syntax'
+import React, { FC } from 'react'
 import styles from './StoryBackground.sass'
 
 export interface StoryBackgroundProps {
   fullscreen?: boolean
-  className?: string
-  style?: CSSProperties
+  className?: ClassProp
+  style?: StyleProp
 }
 
 export const StoryBackground: FC<StoryBackgroundProps> = props => {
@@ -17,12 +17,12 @@ export const StoryBackground: FC<StoryBackgroundProps> = props => {
   } = props
   return (
     <div
-      className={classList(
+      className={parseClassProp([
         styles.container,
-        [styles.fullscreen, fullscreen],
-        className
-      )}
-      style={style}
+        fullscreen && styles.fullscreen,
+        ...Array.isArray(className) ? className : [className]
+      ])}
+      style={parseStyleProp(Array.isArray(style) ? style : [style])}
     >
       {children}
     </div>

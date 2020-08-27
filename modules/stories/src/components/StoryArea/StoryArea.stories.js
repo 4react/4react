@@ -4,19 +4,17 @@ import { StoryArea } from './StoryArea'
 import { StoryBackground } from '../..'
 import { size } from '../../knobs/size'
 
-export default { title: 'StoryArea' }
+export default { title: 'stories/StoryArea' }
 
 export const Basic = () => {
   const props = {
     width: size('width', 4, 'props'),
-    height: size('height', 4, 'props')
+    height: size('height', 4, 'props'),
+    name: text('name', '', 'props')
   }
-  const content = text('content', '', 'props')
   return (
     <StoryBackground>
-      <StoryArea {...props}>
-        {content}
-      </StoryArea>
+      <StoryArea {...props} />
     </StoryBackground>
   )
 }

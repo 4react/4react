@@ -3,7 +3,7 @@ import React from 'react'
 import { StorySection } from './StorySection'
 import { StoryArea, StoryBackground } from '../..'
 
-export default { title: 'StorySection' }
+export default { title: 'stories/StorySection' }
 
 export const Single = () => {
   const props = {

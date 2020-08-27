@@ -11,8 +11,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "story": "start-storybook -s ./.storybook/assets"
+    "build": "rollup -c"
   },
   "dependencies": {
     "@4react/flex": "2020.2.0-alpha",
