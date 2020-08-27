@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import Story from './story'
+import FormStories from '../../src/components/Form.stories'
 
-storiesOf('stories/.', module)
-  .add('basic', Story)
+storiesOf('stories/tmp', module)
+  .add('basic', FormStories)
