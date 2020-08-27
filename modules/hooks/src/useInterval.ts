@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Node } from 'typescript'
 
 /**
  * Sets an interval and automatically updates the number of expirations.

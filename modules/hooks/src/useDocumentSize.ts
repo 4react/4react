@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import debounce from 'lodash/debounce'
+// import { debounce } from 'lodash'
 
 /**
  * Gets document dimensions and automatically updates them.
@@ -11,11 +11,17 @@ const useDocumentSize = () => {
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
 
-  const onResize = debounce(() => {
+  // const onResize = debounce(() => {
+  //   const { documentElement: { clientWidth, clientHeight } } = document
+  //   setWidth(clientWidth)
+  //   setHeight(clientHeight)
+  // }, 200)
+
+  const onResize = () => {
     const { documentElement: { clientWidth, clientHeight } } = document
     setWidth(clientWidth)
     setHeight(clientHeight)
-  }, 200)
+  }
 
   useEffect(() => {
     window.addEventListener('resize', onResize)
