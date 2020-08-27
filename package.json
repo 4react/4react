@@ -6,7 +6,13 @@
   ],
   "repository": "https://github.com/4react/4react",
   "scripts": {
-    "story": "start-storybook -s .storybook/static"
+    "build:responsive": "yarn --cwd \"modules/responsive\" build",
+    "build:skeleton": "yarn --cwd \"modules/skeleton\" build",
+    "build:stories": "yarn --cwd \"modules/stories\" build",
+    "build:syntax": "yarn --cwd \"modules/syntax\" build",
+    "pre": "yarn build:syntax && yarn build:stories && yarn build:skeleton",
+    "storybook": "start-storybook -s .storybook/static",
+    "build:storybook": "build-storybook -o build-storybook -s .storybook/static"
   },
   "dependencies": {
     "@4react/config": "2020.2.0-alpha",
