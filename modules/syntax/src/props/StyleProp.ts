@@ -1,11 +1,12 @@
 import { CSSProperties } from 'react'
+import { ItemOrList, parseItemOrList } from '../utils/ItemOrList'
 
 export type StyleItem = CSSProperties | false | undefined
 
-export type StyleProp = StyleItem | StyleItem[]
+export type StyleProp = ItemOrList<StyleItem>
 
-export const composeStyleItems = (prop: StyleProp): CSSProperties => (
-  (Array.isArray(prop) ? prop : [prop])
+export const parseStyleProp = (prop: StyleProp): CSSProperties => (
+  parseItemOrList<StyleItem>(prop)
     .filter(item => !!item)
     .reduce<CSSProperties>((res, item) => ({ ...res, ...item }), {})
 )
