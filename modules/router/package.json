@@ -19,5 +19,8 @@
   },
   "peerDependencies": {
     "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-knobs": "^6.0.10"
   }
 }

@@ -1,6 +1,6 @@
 import { fullRegex } from '../utils/regex'
 import { parseRoutePathStep, step, Step } from './Step'
-import error from '../utils/errors'
+import RouterError from '../utils/errors'
 
 export type Path = Step[]
 
@@ -12,7 +12,7 @@ export const parseRoutePath = (source: string): Path => {
   }
 
   if (!fullRegex(path).test(source)) {
-    error('parseRoutePath', 'Invalid path')
+    throw new RouterError('parseRoutePath', 'Invalid path')
   }
 
   return source

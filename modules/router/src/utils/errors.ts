@@ -1,5 +1,5 @@
-import { createErrorsFor } from '@4react/errors'
+import { errorsFor } from '@4react/errors'
 
-const error = createErrorsFor('@4react/router')
+const RouterError = errorsFor('@4react/router')
 
-export default error
+export default RouterError

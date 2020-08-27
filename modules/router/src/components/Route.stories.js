@@ -1,10 +1,15 @@
 import { text } from '@storybook/addon-knobs'
 import React from 'react'
-import { matchPath, parseLocation, parseRoutePath } from '../../src'
+import Route from './Route'
+import { matchPath, parseLocation, parseRoutePath } from '../index'
 
-const RouteStory = () => {
+export default {
+  component: Route,
+  title: 'routers/Route'
+}
 
-    const props = {
+export const Basic = () => {
+  const props = {
     path: text('path (route)', 'order/:trackingId=[0-9]+/:section', 'props'),
     pathname: text('pathname (location)', 'order/123456/details', 'props')
   }
@@ -44,9 +49,7 @@ const RouteStory = () => {
         <div>TO MATCH: {JSON.stringify(match.toMatch)}</div>
       </div>
     )
-  } catch(e) {
+  } catch (e) {
     return 'error'
   }
 }
-
-export default RouteStory
