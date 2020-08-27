@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 import { useSkeletonConfig } from '../../methods/useSkeletonConfig'
 
 export interface SkeletonElementProps
-  extends Omit<FlexProps<void>, 'as' | 'direction' | 'row' | 'column' | 'reverse' | 'justify' | 'align' | 'lines' | 'wrap'> {
+  extends Omit<FlexProps<HTMLDivElement>, 'as' | 'direction' | 'row' | 'column' | 'reverse' | 'justify' | 'align' | 'lines' | 'wrap'> {
   radius?: Size
 }
 

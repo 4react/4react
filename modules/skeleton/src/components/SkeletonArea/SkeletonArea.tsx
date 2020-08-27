@@ -1,5 +1,7 @@
-import { classList, parseSize, Size } from '@4react/syntax'
-import React, { CSSProperties, FC } from 'react'
+import {
+  ClassProp, parseClassProp, parseSize, parseStyleProp, Size, StyleProp
+} from '@4react/syntax'
+import React, { FC } from 'react'
 import styles from './SkeletonArea.sass'
 import { useSkeletonConfig } from '../../methods/useSkeletonConfig'
 
@@ -7,8 +9,8 @@ export interface SkeletonAreaProps {
   width?: Size
   height?: Size
   debug?: boolean
-  className?: string
-  style?: CSSProperties
+  className?: ClassProp
+  style?: StyleProp
 }
 
 export const SkeletonArea: FC<SkeletonAreaProps> = props => {
@@ -29,8 +31,8 @@ export const SkeletonArea: FC<SkeletonAreaProps> = props => {
 
   return (
     <div
-      className={classList(styles.container, className)}
-      style={{ ...properties, ...style }}
+      className={parseClassProp([styles.container, ...Array.isArray(className) ? className : [className]])}
+      style={parseStyleProp([properties, ...Array.isArray(style) ? style : [style]])}
     >
       {children}
     </div>
