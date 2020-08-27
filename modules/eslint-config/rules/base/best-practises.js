@@ -67,7 +67,7 @@ module.exports = {
     // disallow assignments to native objects or read-only global variables
     'no-global-assign': 'error',
     // disallow shorthand type conversions
-    'no-implicit-coercion': 'error',
+    'no-implicit-coercion': 'off',
     // disallow variable and function declarations in the global scope
     'no-implicit-globals': 'off',
     // disallow the use of eval()-like methods
