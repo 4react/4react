@@ -4,6 +4,7 @@
 .chrome
 
 #build
+build-storybook
 modules/*/dist
 
 # dependencies
