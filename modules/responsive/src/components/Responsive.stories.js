@@ -1,6 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import Responsive from './Responsive'
+import withResponsiveContext from '../../withResponsiveContext'
+
+export default {
+  component: Responsive,
+  title: 'responsive/Responsive',
+  decorators: [withResponsiveContext]
+}
 
 const MobileMenu = styled.div`
   position: absolute;
@@ -29,7 +36,7 @@ const Footer = styled.div`
   background-color: #aaf;
 `
 
-const ResponsiveStory = () => (
+export const Basic = () => (
   <>
     <Responsive condition={['mobile', 'tablet']}>
       <MobileMenu>MOBILE MENU</MobileMenu>
@@ -42,5 +49,3 @@ const ResponsiveStory = () => (
     </Responsive>
   </>
 )
-
-export default ResponsiveStory

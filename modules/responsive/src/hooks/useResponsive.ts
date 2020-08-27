@@ -3,7 +3,9 @@ import ResponsiveContext from '../model/ResponsiveContext'
 
 export type ResponsivePropertyArray<T> = T[]
 
-export type ResponsivePropertyObject<T> = { [name: string]: T }
+export interface ResponsivePropertyObject<T> {
+  [name: string]: T
+}
 
 type ResponsiveProperty<T> = T | ResponsivePropertyArray<T> | ResponsivePropertyObject<T>
 

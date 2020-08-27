@@ -1,8 +1,8 @@
 import { object } from '@storybook/addon-knobs'
 import React from 'react'
-import ResponsiveProvider from '../src/components/ResponsiveProvider'
+import ResponsiveProvider from './src/components/ResponsiveProvider'
 
-const withContext = (Story) => {
+const withResponsiveContext = Story => {
   const breakpoints = object('breakpoints', { mobile: 0, tablet: 400, desktop: 800 }, 'props')
 
   return (
@@ -12,4 +12,4 @@ const withContext = (Story) => {
   )
 }
 
-export default withContext
+export default withResponsiveContext
