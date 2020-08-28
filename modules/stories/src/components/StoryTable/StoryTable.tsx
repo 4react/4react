@@ -49,7 +49,7 @@ export const StoryTable: FC<StoryTableProps> = props => {
   return (
     <table
       className={parseClassProp([
-        styles.content,
+        styles.container,
         ...parseItemOrList(className)
       ])}
       style={parseStyleProp([

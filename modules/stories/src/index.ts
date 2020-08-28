@@ -1,7 +1,6 @@
 export * from './components/StoryArea/StoryArea'
 export * from './components/StoryBackground/StoryBackground'
 export * from './components/StorySection/StorySection'
-export * from './components/StorySpace/StorySpace'
 export * from './components/StoryTable/StoryTable'
 export * from './decorators/withGlobalStyle'
 export * from './knobs/content'
