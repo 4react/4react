@@ -1,3 +1,4 @@
+import { size } from '@4react/stories'
 import { boolean, number, select, text } from '@storybook/addon-knobs'
 import React from 'react'
 import { Flex } from './Flex'
@@ -20,10 +21,8 @@ export const AsContainer = () => (
     align={select('align', FlexAlign, FlexAlign.START, 'props')}
     lines={select('lines', FlexLineAlign, FlexLineAlign.START, 'props')}
     wrap={boolean('wrap', false, 'props')}
-    width={{ min: 10 }}
-    height={{ min: 40 }}
-    margin={2}
-    padding={4}
+    margin={size('margin', 2, 'props')}
+    padding={size('padding', 4, 'props')}
     className={styles.asContainer}
   >
     <div className={styles.content}>1</div>
@@ -58,7 +57,7 @@ export const Combination = () => (
       self="stretch"
       column
       align="center"
-      width={35}
+      width={300}
       className={styles.innerContainer}
     >
       <Flex self="stretch" grow className={styles.item} />
