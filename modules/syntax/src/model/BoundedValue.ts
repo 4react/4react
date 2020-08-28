@@ -17,7 +17,8 @@ const instanceOfBoundedValueMap = (value: any): boolean => (
 
 export type BoundedValue<T> = T | BoundedValueMap<T>
 
-export const parseBoundedValue = <T>(value: BoxValue<T>): BoundedValueMap<T> => {
+export const parseBoundedValue = <T>(value?: BoxValue<T>): BoundedValueMap<T> => {
+  if (!value) return {}
   if (instanceOfBoundedValueMap(value)) {
     return value as BoxValueMap<T>
   }
