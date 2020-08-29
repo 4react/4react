@@ -13,8 +13,8 @@ export default {
 export const Basic = () => {
   const props = {
     width: size('width', 'fill', 'props'),
-    height: size('height', 4, 'props'),
-    radius: size('radius', 2, 'props')
+    height: size('height', 32, 'props'),
+    radius: size('radius', 16, 'props')
   }
   return (
     <StoryBackground>

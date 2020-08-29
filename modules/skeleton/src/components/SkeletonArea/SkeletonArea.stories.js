@@ -16,17 +16,17 @@ export const Basic = () => (
     <SkeletonArea width="fill">
       <Flex row>
         <Flex column>
-          <SkeletonElement width={8} height={8} radius={4} />
-          <SkeletonElement width={8} height={2} radius={2} margin={{ top: 1 }} />
-          <SkeletonElement width={4} height={1} margin={{ top: 1 }} />
-          <SkeletonElement width={4} height={1} margin={{ top: 1 }} />
+          <SkeletonElement width={64} height={64} radius={32} />
+          <SkeletonElement width={64} height={16} radius={8} margin={{ top: 8 }} />
+          <SkeletonElement width={32} height={8} margin={{ top: 8 }} />
+          <SkeletonElement width={32} height={8} margin={{ top: 8 }} />
         </Flex>
-        <Flex column grow margin={{ left: 2 }}>
-          <SkeletonElement width="fill" height={4} radius={2} margin={{ top: 2 }} />
-          <Flex row grow={0} margin={{ top: 3 }}>
-            <SkeletonElement width={6} height={6} radius={1} />
-            <SkeletonElement grow width={12} height={6} radius={1} margin={{ left: 2 }} />
-            <SkeletonElement width={6} height={6} radius={1} margin={{ left: 2 }} />
+        <Flex column grow margin={{ left: 16 }}>
+          <SkeletonElement width="fill" height={32} radius={16} margin={{ top: 16 }} />
+          <Flex row grow={0} margin={{ top: 24 }}>
+            <SkeletonElement grow width={12} height={48} radius={8} />
+            <SkeletonElement width={32} height={48} radius={8} margin={{ left: 16 }} />
+            <SkeletonElement width={32} height={48} radius={8} margin={{ left: 16 }} />
           </Flex>
         </Flex>
       </Flex>
