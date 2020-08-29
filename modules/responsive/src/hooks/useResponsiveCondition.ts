@@ -1,6 +1,5 @@
-import { useContext } from 'react'
 import Breakpoints from '../model/Breakpoints'
-import ResponsiveContext from '../model/ResponsiveContext'
+import { useResponsive } from './useResponsive'
 
 export interface BreakpointConditionRange {
   min?: string
@@ -10,6 +9,10 @@ export interface BreakpointConditionRange {
 export type BreakpointCondition = string | string[] | BreakpointConditionRange
 
 const parseConditionTargets = (condition: BreakpointCondition, breakpoints: Breakpoints): string[] => {
+  if (Array.isArray(condition)) {
+    return condition as string[]
+  }
+
   if (typeof condition === 'object') {
     const range = condition as BreakpointConditionRange
     const startIndex = range.min
@@ -22,15 +25,11 @@ const parseConditionTargets = (condition: BreakpointCondition, breakpoints: Brea
     return breakpoints.keys.slice(startIndex, endIndex + 1)
   }
 
-  if (Array.isArray(condition)) {
-    return condition as string[]
-  }
-
   return [condition as string]
 }
 
 const useResponsiveCondition = (condition: BreakpointCondition): boolean => {
-  const { breakpoints, current } = useContext(ResponsiveContext)
+  const { breakpoints, current } = useResponsive()
   if (!current) return false
   const targets: string[] = parseConditionTargets(condition, breakpoints)
 

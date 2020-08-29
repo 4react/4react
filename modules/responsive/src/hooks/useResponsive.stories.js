@@ -1,8 +1,7 @@
+import { StoryArea, StoryBackground, StoryContent, StorySection } from '@4react/stories'
 import React from 'react'
-import styled from 'styled-components'
-import useCurrentBreakpoint from './useCurrentBreakpoint'
-import useResponsive from './useResponsive'
 import withResponsiveContext from '../../withResponsiveContext'
+import { useResponsive } from './useResponsive'
 
 export default {
   method: useResponsive,
@@ -10,18 +9,36 @@ export default {
   decorators: [withResponsiveContext]
 }
 
-const Container = styled.div`
-  height: 100px;
-  background-color: #faa;
-`
-
-export const UseResponsiveStories = () => {
-  const breakpoint = useCurrentBreakpoint()
-  const responsive = useResponsive()
-  const width = responsive(['100%', 380, 650])
+export const Basic = () => {
+  const { width, current, validKeys } = useResponsive()
   return (
-    <Container style={{ width }}>
-      {`${breakpoint} - ${width}`}
-    </Container>
+    <StoryBackground>
+      <StorySection title="width">
+        <StoryContent
+          name={width}
+          margin={8}
+          padding={8}
+        />
+      </StorySection>
+      <StorySection title="current">
+        <StoryContent
+          name={current}
+          margin={8}
+          padding={8}
+        />
+      </StorySection>
+      <StorySection title="validKeys">
+        <StoryArea row>
+          {validKeys.map(validKey => (
+            <StoryContent
+              key={validKey}
+              name={validKey}
+              margin={8}
+              padding={8}
+            />
+          ))}
+        </StoryArea>
+      </StorySection>
+    </StoryBackground>
   )
 }

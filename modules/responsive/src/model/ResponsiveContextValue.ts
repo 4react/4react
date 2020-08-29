@@ -1,9 +1,8 @@
 import Breakpoints from './Breakpoints'
 
-interface ResponsiveContextValue {
+export interface ResponsiveContextValue {
   breakpoints: Breakpoints
-  current: string,
+  width: number
+  current: string
   validKeys: string[]
 }
-
-export default ResponsiveContextValue

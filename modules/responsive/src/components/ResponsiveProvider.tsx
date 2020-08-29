@@ -1,39 +1,48 @@
-import React, { FC, useEffect, useMemo, useState } from 'react'
-import ResponsiveContext from '../model/ResponsiveContext'
-import ResponsiveContextValue from '../model/ResponsiveContextValue'
-import detectBreakpointChange from '../utils/detectBreakpointChange'
+import { ElementRect, useSize } from '@4react/hooks'
+import React, { FC, useMemo } from 'react'
 import Breakpoints from '../model/Breakpoints'
-import BreakpointsMap, { defaultBreakpoints } from '../model/BreakpointsMap'
+import { BreakpointsMap, defaultBreakpointsMap } from '../model/BreakpointsMap'
+import ResponsiveContext from '../model/ResponsiveContext'
+import { ResponsiveContextValue } from '../model/ResponsiveContextValue'
 
 export interface ResponsiveProviderProps {
   breakpoints?: BreakpointsMap
 }
 
-const ResponsiveProvider: FC<ResponsiveProviderProps> = (props) => {
+const ResponsiveProvider: FC<ResponsiveProviderProps> = props => {
   const {
-    breakpoints: rowBreakpoints = defaultBreakpoints,
+    breakpoints: breakpointsMap = defaultBreakpointsMap,
     children
   } = props
 
-  const breakpoints: Breakpoints = new Breakpoints(rowBreakpoints)
-  const [current, setCurrent] = useState<string>('')
+  const rect: ElementRect | undefined = useSize()
+  const breakpoints: Breakpoints = new Breakpoints(breakpointsMap)
 
-  useEffect(() => {
-    detectBreakpointChange(breakpoints, setCurrent)
-  }, [])
 
   const context: ResponsiveContextValue = useMemo(() => {
-    const validIndex =  breakpoints.indexOf(current)
-    const validKeys = validIndex >= 0
-      ? breakpoints.keys.slice(0, breakpoints.indexOf(current) + 1)
+    const width = rect?.width || 0
+    let currentIndex = 0
+    let current = 'default'
+    if (width) {
+      // find last breakpoint for which the min width is satisfied
+      const lastValid = breakpoints.keys.reverse().find(k => width > breakpoints.valueOf(k))
+      if (lastValid) {
+        currentIndex = breakpoints.indexOf(lastValid)
+        current = breakpoints.keys[currentIndex]
+      }
+    }
+
+    const validKeys = currentIndex >= 0
+      ? breakpoints.keys.slice(0, currentIndex + 1)
       : []
 
     return {
       breakpoints,
+      width,
       current,
       validKeys
     }
-  }, [current])
+  }, [rect?.width])
 
   return (
     <ResponsiveContext.Provider value={context}>

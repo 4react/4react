@@ -27,10 +27,10 @@ const App = () => (
 ### Create responsive values
 
 ```jsx
-import { useResponsive } from '@4react/responsive'
+import { useResponsiveProperty } from '@4react/responsive'
 
 const Foo = () => {
-  const responsive = useResponsive()
+  const responsive = useResponsiveProperty()
   const width = responsive(['100%', 720, 960])
 
   return (
@@ -65,7 +65,7 @@ const App = () => (
 - [Responsive](#responsive-component)
 
 ##### Hooks
-- [useResponsive](#useresponsive-hook)
+- [useResponsiveProperty](#useresponsive-hook)
 - [useResponsiveCondition](#useresponsivecondition-hook)
 - [useCurrentBreakpoint](#usecurrentbreakpoint-hook)
 - [useIsBreakpointDetected](#useisbreakpointdetected-hook)
@@ -163,11 +163,11 @@ With an `object` containing one or more of the following keys:
 <Responsive condition={{ min: 'sm', max: 'lg' }} ... />
 ```
 
-### useResponsive [hook]
+### useResponsiveProperty [hook]
 
 Call this hook to obtain the *responsive* function, used for creating breakpoint-dependent values.
 ```js
-const responsive = useResponsive()
+const responsive = useResponsiveProperty()
 ```
 
 | Param | Type | Default | Description |
@@ -227,11 +227,11 @@ Anyway you can use this notation on a subset of breakpoints (See [Select a break
 
 ##### Select a breakpoints subset
 
-If needed, we can use the useResponsive optional parameter to specify a desired subset of breakpoints;
+If needed, we can use the useResponsiveProperty optional parameter to specify a desired subset of breakpoints;
 this can be done listing their names:
 
 ```jsx
-const responsive = useResponsive(['default', 'md', 'xxl'])
+const responsive = useResponsiveProperty(['default', 'md', 'xxl'])
 
 const width = responsive([32, 40, 48])
 ```
@@ -268,7 +268,7 @@ Breakpoint is detected at runtime.
 Use this hook to check if a breakpoint is still to be detected during the first application render.
 
 ```js
-const isBreakpointDetected = useIsBreakpointDetected()
+const isBreakpointDetected = useIsAnyBreakpointDetected()
 
 if (!isBreakpointDetected) {
   render <Loader />

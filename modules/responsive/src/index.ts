@@ -1,27 +1,12 @@
 // components
-import * as responsiveProvider from './components/ResponsiveProvider'
-import * as responsive from './components/ResponsiveProvider'
+export * from './components/Responsive'
+export * from './components/ResponsiveProvider'
 // context
-import * as responsiveContext from './model/ResponsiveContext'
-import * as responsiveContextValue from './model/ResponsiveContextValue'
+export * from './model/ResponsiveContext'
+export * from './model/ResponsiveContextValue'
 // model
-import * as breakpoints from './model/Breakpoints'
-import * as breakpointsMap from './model/BreakpointsMap'
+export * from './model/Breakpoints'
+export * from './model/BreakpointsMap'
 // hooks
-import * as useCurrentBreakpoint from './hooks/useCurrentBreakpoint'
-import * as useIsBreakpointDetected from './hooks/useIsBreakpointDetected'
-import * as useResponsive from './hooks/useResponsive'
-import * as useResponsiveCondition from './hooks/useResponsiveCondition'
-
-export default {
-  ...responsiveProvider,
-  ...responsive,
-  ...responsiveContext,
-  ...responsiveContextValue,
-  ...breakpoints,
-  ...breakpointsMap,
-  ...useCurrentBreakpoint,
-  ...useIsBreakpointDetected,
-  ...useResponsive,
-  ...useResponsiveCondition
-}
+export * from './hooks/useResponsiveProperty'
+export * from './hooks/useResponsiveCondition'

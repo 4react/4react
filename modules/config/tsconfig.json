@@ -12,9 +12,9 @@
 //    "preserveConstEnums": true,
 //    "removeComments": true,
 //    "skipLibCheck": true,
-//    "types": [
-//      "node"
-//    ],
+    "types": [
+      "node"
+    ],
     "typeRoots": [
       "../../../node_modules/@types",
       "./node_modules/@types"

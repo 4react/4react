@@ -3,7 +3,7 @@ import React from 'react'
 import ResponsiveProvider from './src/components/ResponsiveProvider'
 
 const withResponsiveContext = Story => {
-  const breakpoints = object('breakpoints', { mobile: 0, tablet: 400, desktop: 800 }, 'props')
+  const breakpoints = object('breakpoints', { mobile: 0, tablet: 576, desktop: 992 }, 'provider')
 
   return (
     <ResponsiveProvider breakpoints={breakpoints}>

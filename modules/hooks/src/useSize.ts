@@ -12,7 +12,7 @@ export interface ElementRect {
   left: number
 }
 
-export const useSize = <T extends HTMLElement>(ref: RefObject<T | undefined>): ElementRect | undefined => {
+export const useSize = <T extends HTMLElement>(ref?: RefObject<T | undefined>): ElementRect | undefined => {
   const [rect, setRect] = useState<ElementRect>()
 
   const observer = useMemo(() => (
@@ -22,8 +22,10 @@ export const useSize = <T extends HTMLElement>(ref: RefObject<T | undefined>): E
   ), [])
 
   useEffect(() => {
-    if (ref.current) {
+    if (ref?.current) {
       observer.observe(ref.current)
+    } else {
+      observer.observe(document.getElementsByTagName('body')[0])
     }
   }, [ref])
 

@@ -1,5 +1,5 @@
 import React, { ComponentType, FC, ReactChildren } from 'react'
-import useCurrentBreakpoint from '../hooks/useCurrentBreakpoint'
+import { useResponsive } from '../hooks/useResponsive'
 import useResponsiveCondition, { BreakpointCondition } from '../hooks/useResponsiveCondition'
 
 export interface ResponsiveProps {
@@ -8,7 +8,7 @@ export interface ResponsiveProps {
   render?: (current: string) => ReactChildren
 }
 
-const Responsive: FC<ResponsiveProps> = (props) => {
+const Responsive: FC<ResponsiveProps> = props => {
   const {
     condition,
     component: ComponentToRender,
@@ -17,7 +17,7 @@ const Responsive: FC<ResponsiveProps> = (props) => {
   } = props
 
   const isConditionFulfilled = useResponsiveCondition(condition)
-  const current = useCurrentBreakpoint()
+  const { current } = useResponsive()
 
   const renderContent = () => {
     if (!isConditionFulfilled) return null

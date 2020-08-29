@@ -1,9 +1,10 @@
+/* eslint-disable no-underscore-dangle */
 import invert from 'lodash/invert'
-import BreakpointsMap from './BreakpointsMap'
+import { BreakpointsMap } from './BreakpointsMap'
 
 class Breakpoints {
-  public map: BreakpointsMap
-  public keys: string[] = []
+  _map: BreakpointsMap
+  _keys: string[] = []
 
   constructor(map: BreakpointsMap) {
     const keys = Object
@@ -12,25 +13,29 @@ class Breakpoints {
 
     if (keys.length && map[keys[0]] > 0) {
       keys.unshift('default')
-      map['default'] = 0
+      // eslint-disable-next-line no-param-reassign
+      map.default = 0
     }
 
-    this.map = map
-    this.keys = keys
-
+    this._map = map
+    this._keys = keys
 
     const byValue = invert(map)
-    if (!byValue.hasOwnProperty(0)) {
+    if (!Object.prototype.hasOwnProperty.call(byValue, 0)) {
       byValue[0] = 'default'
     }
   }
 
   valueOf(key: string): number {
-    return this.map[key]
+    return this._map[key]
   }
 
   indexOf(key: string): number {
     return this.keys.indexOf(key)
+  }
+
+  get keys(): string[] {
+    return [...this._keys]
   }
 
   get values(): number[] {

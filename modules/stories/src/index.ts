@@ -1,5 +1,6 @@
 export * from './components/StoryArea/StoryArea'
 export * from './components/StoryBackground/StoryBackground'
+export * from './components/StoryContent/StoryContent'
 export * from './components/StorySection/StorySection'
 export * from './components/StoryTable/StoryTable'
 export * from './decorators/withGlobalStyle'
