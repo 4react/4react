@@ -1,0 +1,54 @@
+@import "../../../../utils/mixins"
+
+.container
+  @include basic
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  margin: .5rem
+  width: 100%
+
+  .header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: stretch
+    width: 100%
+    height: 2rem
+    padding-bottom: .5rem
+    overflow: hidden
+
+    .label
+      flex: 0 1 auto
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+      white-space: nowrap
+      margin-right: .25rem
+
+    .action
+      flex: 2 1 auto
+      display: flex
+      flex-direction: row-reverse
+      justify-content: flex-start
+      align-items: stretch
+      width: 100%
+
+  .footer
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: stretch
+    width: 100%
+    height: 2.5rem
+    max-height: 2.5rem
+    overflow: hidden
+
+    .description
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      align-items: stretch
+      width: 100%
+      margin-top: .5rem
