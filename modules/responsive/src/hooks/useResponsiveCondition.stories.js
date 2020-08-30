@@ -2,7 +2,7 @@ import { StoryBackground, StoryContent, StoryContentStatus, StorySection } from 
 import { object, text } from '@storybook/addon-knobs'
 import React from 'react'
 import withResponsiveContext from '../../withResponsiveContext'
-import { useResponsive } from './useResponsive'
+import { useResponsiveInfo } from './useResponsiveInfo'
 import useResponsiveCondition from './useResponsiveCondition'
 
 export default {
@@ -19,7 +19,7 @@ export const Basic = () => {
   const simpleFulfilled = useResponsiveCondition(simpleCondition)
   const arrayFulfilled = useResponsiveCondition(arrayCondition)
   const complexFulfilled = useResponsiveCondition(complexCondition)
-  const { current } = useResponsive()
+  const { current } = useResponsiveInfo()
 
   const renderCondition = (condition, fulfilled) => (
     <StorySection title={JSON.stringify(condition)}>

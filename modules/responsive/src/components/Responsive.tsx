@@ -1,5 +1,5 @@
 import React, { ComponentType, FC, ReactChildren } from 'react'
-import { useResponsive } from '../hooks/useResponsive'
+import { useResponsiveInfo } from '../hooks/useResponsiveInfo'
 import useResponsiveCondition, { BreakpointCondition } from '../hooks/useResponsiveCondition'
 
 export interface ResponsiveProps {
@@ -17,7 +17,7 @@ const Responsive: FC<ResponsiveProps> = props => {
   } = props
 
   const isConditionFulfilled = useResponsiveCondition(condition)
-  const { current } = useResponsive()
+  const { current } = useResponsiveInfo()
 
   const renderContent = () => {
     if (!isConditionFulfilled) return null

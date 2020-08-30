@@ -1,5 +1,5 @@
 import Breakpoints from '../model/Breakpoints'
-import { useResponsive } from './useResponsive'
+import { useResponsiveInfo } from './useResponsiveInfo'
 
 export interface BreakpointConditionRange {
   min?: string
@@ -29,7 +29,7 @@ const parseConditionTargets = (condition: BreakpointCondition, breakpoints: Brea
 }
 
 const useResponsiveCondition = (condition: BreakpointCondition): boolean => {
-  const { breakpoints, current } = useResponsive()
+  const { breakpoints, current } = useResponsiveInfo()
   if (!current) return false
   const targets: string[] = parseConditionTargets(condition, breakpoints)
 

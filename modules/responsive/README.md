@@ -2,13 +2,30 @@
 
 Responsiveness for React applications.
 
-```
-npm i @4react/responsive
+```jsx
+<MyContainer>
+  <MyContent
+    width={responsive({ mobile: '100%', tablet: 720, desktop: 960 })}
+  />
+  <Responsive condition="mobile">
+    <MyMobileMenu />
+  </Responsive>
+  <Responsive condition={{ min: 'tablet' }}>
+    <NavBar />
+  </Responsive>
+</MyContainer>
 ```
 
 ## Usage
 
+### Import dependency
+
+```
+npm i @4react/responsive
+```
+
 ### Define breakpoints
+Provide your custom breakpoint configuration using the `ResponsiveProvider` component.
 
 ```jsx
 import { ResponsiveProvider } from '@4react/responsive'
@@ -24,19 +41,19 @@ const App = () => (
 )
 ```
 
-### Create responsive values
+### Use responsive values
 
 ```jsx
-import { useResponsiveProperty } from '@4react/responsive'
+import { useResponsive } from '@4react/responsive'
 
 const Foo = () => {
-  const responsive = useResponsiveProperty()
-  const width = responsive(['100%', 720, 960])
+  const responsive = useResponsive()
 
   return (
-    <div style={{ width }}>
-      ...
-    </div>
+    <div style={{
+      width: responsive(['100%', 720, 960]),
+      margin: responsive({ mobile: 16, desktop: 24 })
+    }} />
   )
 }
 ```
@@ -58,27 +75,17 @@ const App = () => (
 )
 ```
 
-## API
-
-##### Components
-- [ResponsiveProvider](#responsiveprovider-component)
-- [Responsive](#responsive-component)
-
-##### Hooks
-- [useResponsiveProperty](#useresponsive-hook)
-- [useResponsiveCondition](#useresponsivecondition-hook)
-- [useCurrentBreakpoint](#usecurrentbreakpoint-hook)
-- [useIsBreakpointDetected](#useisbreakpointdetected-hook)
+## Docs
 
 ### ResponsiveProvider [Component]
 
-Use this component to provide responsiveness functionalities down to the application.
+Configure responsiveness and provide it down to the application.
 
 | Props | Type | Default | Description |
 | --- | --- | --- | --- |
-| breakpoints | object (***see [Breakpoints definition](#breakpoint-definition)***) | ***see [Default breakpoints](#default-breakpoints)*** | ***[optional]*** Custom breakpoints configuration. |
+| breakpoints | ***[Breakpoints](#breakpoints)*** | ***see [Default breakpoints](#default-breakpoints)*** | ***[optional]*** Custom breakpoints configuration. |
 
-#### Breakpoints definition
+#### Breakpoints
 
 Breakpoints can be configured with an object map with the following characteristics:
 - each key represent a custom breakpoint name
@@ -118,7 +125,7 @@ In case of no breakpoints' schema specified, the following values will be used:
 
 ### Responsive [Component]
 
-Use this component to conditionally render parts of your application.
+Conditionally render parts of your application.
 
 ```jsx
 // with children
@@ -137,13 +144,13 @@ Use this component to conditionally render parts of your application.
 
 | Props | Type | Default | Description |
 | --- | --- | --- | --- |
-| condition | string &#124; array &#124; object (***see [Responsive condition](#responsive-condition)***) | - | Defines the render condition. |
-| component | React Component | - | ***[optional]*** Render the specified component. |
+| condition | ***[BreakpointCondition](#breakpoint-condition)*** | - | Defines for which breakpoints the portion of the application will be rendered. |
+| component | React Component | - | ***[optional]*** Component to be rendered. |
 | render | Render Function | - | ***[optional]*** Render function, receiving the current active breakpoint. |
 
-##### Responsive condition
+##### Breakpoint condition
 
-A responsive condition can be described in 3 ways:
+A condition can be described in 3 ways:
 
 With a `string` representing the name of a specific breakpoint.
 ```jsx
@@ -155,7 +162,7 @@ With an `array of string` representing a list of breakpoints names.
 <Responsive condition={['xs', 'xxl']} ... />
 ```
 
-With an `object` containing one or more of the following keys:
+With an `object` containing one or both the following keys:
 - min:`string` representing the minimum breakpoint for which the condition is valid.
 - max:`string` representing the maximum breakpoint for which the condition is valid.
 ```jsx
@@ -163,11 +170,11 @@ With an `object` containing one or more of the following keys:
 <Responsive condition={{ min: 'sm', max: 'lg' }} ... />
 ```
 
-### useResponsiveProperty [hook]
+### useResponsive [hook]
 
 Call this hook to obtain the *responsive* function, used for creating breakpoint-dependent values.
 ```js
-const responsive = useResponsiveProperty()
+const responsive = useResponsive()
 ```
 
 | Param | Type | Default | Description |
@@ -227,11 +234,11 @@ Anyway you can use this notation on a subset of breakpoints (See [Select a break
 
 ##### Select a breakpoints subset
 
-If needed, we can use the useResponsiveProperty optional parameter to specify a desired subset of breakpoints;
+If needed, we can use the useResponsive optional parameter to specify a desired subset of breakpoints;
 this can be done listing their names:
 
 ```jsx
-const responsive = useResponsiveProperty(['default', 'md', 'xxl'])
+const responsive = useResponsive(['default', 'md', 'xxl'])
 
 const width = responsive([32, 40, 48])
 ```
@@ -243,7 +250,7 @@ Use this hook to create boolean checks using the same condition logics of the Re
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| breakpoints | string &#124; array &#124; object (See [Responsive Component](#responsive-component)) | - | Specify the checker condition. |
+| breakpoints | [BreakpointCondition](#breakpoint condition)) | - | Specify the checker condition. |
 
 ```js
 // single breakpoint
@@ -254,25 +261,15 @@ const isMobile = useResponsiveCondition(['xs', 'sm', 'md'])
 const isMobile = useResponsiveCondition({ max: 'md' })
 ```
 
-### useCurrentBreakpoint [hook]
+### useResponsiveInfo [hook]
 
-Use this hook to obtain the actual valid breakpoint.
-
-```js
-const current = useCurrentBreakpoint()
-```
-
-### useIsBreakpointDetected [hook]
-
-Breakpoint is detected at runtime.
-Use this hook to check if a breakpoint is still to be detected during the first application render.
+Get responsive information.
 
 ```js
-const isBreakpointDetected = useIsAnyBreakpointDetected()
-
-if (!isBreakpointDetected) {
-  render <Loader />
-}
-
-render <App />
+const { width, current } = useResponsiveInfo()
 ```
+
+| Info | Type | Default | Description |
+| --- | --- | --- | --- |
+| width | number | 0 | Width of the HTML body element (in pixels). |
+| current | string | default | Name of the current valid breakpoint. |

@@ -8,5 +8,5 @@ export * from './model/ResponsiveContextValue'
 export * from './model/Breakpoints'
 export * from './model/BreakpointsMap'
 // hooks
-export * from './hooks/useResponsiveProperty'
+export * from './hooks/useResponsive'
 export * from './hooks/useResponsiveCondition'
