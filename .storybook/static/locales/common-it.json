@@ -1,0 +1,30 @@
+{
+  "basic": "Base",
+  "welcomeToTheSite": "Benvenuti nel sito!",
+  "nested": {
+    "title": "Annidato",
+    "form": {
+      "fieldUsername": "Campo nome utente del form",
+      "fieldPassword": "Campo password del form",
+      "submit": "Sottomissione del form"
+    }
+  },
+  "presentation": "Ciao! Sono {name} e ho {age} anni.",
+  "vehicles": "Veicoli",
+  "vehicles_classic": "Veicoli classici",
+  "vehicles_special": "Veicoli speciali",
+  "vehicles_type:light": "Veicoli leggeri",
+  "vehicles_type:heavy": "Veicoli pesanti",
+  "vehicles_type:light_color:red": "Veicoli rossi leggeri",
+  "vehicles_type:light_color:green": "Veicoli verdi leggeri",
+  "vehicles_type:heavy_color:red": "Veicoli rossi pesanti",
+  "vehicles_type:heavy_color:green": "Veicoli verdi pesanti",
+  "books": "libro",
+  "books_n": "libri",
+  "th": "{count}°",
+  "numberOfHouse_color:red": "{count} casa rossa",
+  "numberOfHouse_color:red_n": "{count} case rosse",
+  "numberOfHouse_color:green": "{count} casa verde",
+  "numberOfHouse_color:green_n": "{count} case verdi",
+  "theNthPosition": "La {{th}} posizione"
+}

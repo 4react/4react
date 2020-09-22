@@ -1,0 +1,33 @@
+{
+  "basic": "Basic",
+  "welcomeToTheSite": "Welcome to the site!",
+  "nested": {
+    "title": "Nested",
+    "form": {
+      "fieldUsername": "Form Username Field",
+      "fieldPassword": "Form Password Field",
+      "submit": "Form Submit"
+    }
+  },
+  "presentation": "Hi! I'm {name} and I'm {age} years old.",
+  "vehicles": "Vehicles",
+  "vehicles_classic": "Classic Vehicles",
+  "vehicles_special": "Special Vehicles",
+  "vehicles_type:light": "Light Vehicles",
+  "vehicles_type:heavy": "Heavy Vehicles",
+  "vehicles_type:light_color:red": "Light Red Vehicles",
+  "vehicles_type:light_color:green": "Light Green Vehicles",
+  "vehicles_type:heavy_color:red": "Heavy Red Vehicles",
+  "vehicles_type:heavy_color:green": "Heavy Green Vehicles",
+  "books": "book",
+  "books_n": "books",
+  "th_1": "{count}st",
+  "th_2": "{count}nd",
+  "th_3": "{count}rd",
+  "th_n": "{count}th",
+  "numberOfHouse_color:red": "{count} Red House",
+  "numberOfHouse_color:red_n": "{count} Red Houses",
+  "numberOfHouse_color:green": "{count} Green House",
+  "numberOfHouse_color:green_n": "{count} Green Houses",
+  "theNthPosition": "The {{th}} position"
+}

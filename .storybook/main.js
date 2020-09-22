@@ -10,9 +10,9 @@ module.exports = configureMain({
     // '../modules/errors/**/*stories.js',
     '../modules/flex/**/*stories.js',
     // '../modules/forms/**/*stories.js',
-    // '../modules/localize/**/*stories.js',
+    '../modules/store/**/*stories.js',
+    '../modules/localize/**/*stories.js',
     '../modules/responsive/**/*stories.js',
     // '../modules/router/**/*stories.js',
-    // '../modules/store/**/*stories.js',
   ]
 })
