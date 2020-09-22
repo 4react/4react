@@ -11,7 +11,7 @@ module.exports = {
     // disallow or enforce spaces inside of blocks after opening block and before closing block
     'block-spacing': ['error', 'always'],
     // enforce consistent brace style for blocks
-    'brace-style': ['warn', '1tbs', { allowSingleLine: true }],
+    'brace-style': ['warn', 'stroustrup', { allowSingleLine: true }],
     // enforce camelcase naming convention
     'camelcase': ['error', { properties: 'never', ignoreDestructuring: false }],
     // enforce or disallow capitalization of the first letter of a comment

@@ -13,7 +13,7 @@ module.exports = {
     // disallow comparing against -0
     'no-compare-neg-zero': 'error',
     // disallow assignment operators in conditional expressions
-    'no-cond-assign': ['error', 'always'],
+    'no-cond-assign': 'off',
     // disallow the use of console
     'no-console': 'warn',
     // disallow constant expressions in conditions

@@ -183,7 +183,7 @@ module.exports = {
     /* EXTENSION */
 
     // Enforce consistent brace style for blocks
-    '@typescript-eslint/brace-style': ['warn', '1tbs'],
+    '@typescript-eslint/brace-style': ['warn', 'stroustrup'],
     // Enforces consistent spacing before and after commas
     '@typescript-eslint/comma-spacing': 'off',
     // Enforce default parameters to be last
@@ -195,7 +195,7 @@ module.exports = {
     // Enforce consistent indentation
     '@typescript-eslint/indent': ['warn', 2],
     // require or disallow initialization in variable declarations
-    '@typescript-eslint/init-declarations': 'error',
+    '@typescript-eslint/init-declarations': 'off',
     // Enforce consistent spacing before and after keywords
     '@typescript-eslint/keyword-spacing': 'off',
     // Require or disallow an empty line between class members

@@ -101,9 +101,7 @@ module.exports = {
     // disallow octal escape sequences in string literals
     'no-octal-escape': 'error',
     // disallow reassigning function parameters
-    'no-param-reassign': ['error', {
-      props: true
-    }],
+    'no-param-reassign': 'off',
     // disallow the use of the __proto__ property
     'no-proto': 'error',
     // disallow variable redeclaration
