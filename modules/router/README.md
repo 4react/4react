@@ -1,6 +1,6 @@
 # @4react / router
 
-Router for React Application
+Routing for React applications
 
 ```jsx
 const AwesomeApp = () => (
