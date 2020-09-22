@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import { parseClassProp, parseItemOrList, parseStyleProp, Size } from '@4react/syntax'
+import { composeClass, composeStyle, parseItemOrList, Size } from '@4react/syntax'
 import React, { CSSProperties, FC } from 'react'
 import styles from './StoryTable.sass'
 
@@ -48,11 +48,11 @@ export const StoryTable: FC<StoryTableProps> = props => {
 
   return (
     <table
-      className={parseClassProp([
+      className={composeClass([
         styles.container,
         ...parseItemOrList(className)
       ])}
-      style={parseStyleProp([
+      style={composeStyle([
         fullscreen && { width: '100%' },
         ...parseItemOrList(style)
       ])}

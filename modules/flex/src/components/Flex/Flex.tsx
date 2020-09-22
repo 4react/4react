@@ -1,6 +1,6 @@
 import {
   BoxValue, ClassProp, parseBoxValue, parseSize, Size,
-  StyleProp, BoundedValue, parseBoundedValue, parseClassProp, parseStyleProp, parseItemOrList
+  StyleProp, BoundedValue, parseBoundedValue, composeClass, composeStyle, parseItemOrList
 } from '@4react/syntax'
 import React, { FC } from 'react'
 import styles from './Flex.sass'
@@ -86,7 +86,7 @@ export const Flex: FlexComponent = props => {
     ...otherProps
   } = props
 
-  const composedClassName = parseClassProp([
+  const composedClassName = composeClass([
     styles.flex,
     inline && styles.inline,
     directionClass(direction, row, column),
@@ -104,7 +104,7 @@ export const Flex: FlexComponent = props => {
   const widths = parseBoundedValue(width)
   const heights = parseBoundedValue(height)
 
-  const composedStyle = parseStyleProp([
+  const composedStyle = composeStyle([
     !!order && { order },
     !!grow && flexGrow(grow),
     !!shrink && flexShrink(shrink),

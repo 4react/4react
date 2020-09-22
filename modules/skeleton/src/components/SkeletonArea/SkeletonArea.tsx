@@ -1,5 +1,5 @@
 import {
-  ClassProp, parseClassProp, parseSize, parseStyleProp, Size, StyleProp
+  ClassProp, composeClass, composeStyle, parseSize, Size, StyleProp
 } from '@4react/syntax'
 import React, { FC } from 'react'
 import styles from './SkeletonArea.sass'
@@ -31,8 +31,8 @@ export const SkeletonArea: FC<SkeletonAreaProps> = props => {
 
   return (
     <div
-      className={parseClassProp([styles.container, ...Array.isArray(className) ? className : [className]])}
-      style={parseStyleProp([properties, ...Array.isArray(style) ? style : [style]])}
+      className={composeClass([styles.container, ...Array.isArray(className) ? className : [className]])}
+      style={composeStyle([properties, ...Array.isArray(style) ? style : [style]])}
     >
       {children}
     </div>

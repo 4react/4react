@@ -1,4 +1,4 @@
-import { ClassProp, parseClassProp, parseStyleProp, StyleProp } from '@4react/syntax'
+import { ClassProp, composeClass, composeStyle, StyleProp } from '@4react/syntax'
 import React, { FC } from 'react'
 import styles from './StoryBackground.sass'
 
@@ -17,12 +17,12 @@ export const StoryBackground: FC<StoryBackgroundProps> = props => {
   } = props
   return (
     <div
-      className={parseClassProp([
+      className={composeClass([
         styles.container,
         fullscreen && styles.fullscreen,
         ...Array.isArray(className) ? className : [className]
       ])}
-      style={parseStyleProp(Array.isArray(style) ? style : [style])}
+      style={composeStyle(Array.isArray(style) ? style : [style])}
     >
       {children}
     </div>
