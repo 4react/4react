@@ -17,7 +17,7 @@ const buildConfig = {
     nodeResolve(),
     commonjs({
       // requireReturnsDefault: false,
-      // // esmExternals: false,
+      // esmExternals: false,
       // include: /node_modules/
     }),
     typescript({

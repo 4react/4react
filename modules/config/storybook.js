@@ -10,6 +10,9 @@ exports.configureMain = options => {
     ],
     stories: stories,
     webpackFinal: async config => {
+      config.node = {
+        fs: 'empty'
+      }
       config.module.rules.push({
         test: /\.s[ac]ss$/i,
         use: [
