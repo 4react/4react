@@ -1,13 +1,14 @@
 import React from 'react'
-import Localization from './src/components/Localization'
-import initI18n from './src/helpers/initI18n'
-
-initI18n(['en', 'it'])
+import LocalizationProvider from './src/components/LocalizationProvider/LocalizationProvider'
 
 const withLocalizeContext = Story => (
-  <Localization>
+  <LocalizationProvider
+    languages={['en', 'it']}
+    namespaces={['common', 'special']}
+    pattern="/locales/{{namespace}}-{{language}}.json"
+  >
     <Story />
-  </Localization>
+  </LocalizationProvider>
 )
 
 export default withLocalizeContext

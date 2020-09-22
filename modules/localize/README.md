@@ -28,14 +28,14 @@ initI18n(
 ```
 
 ### Provide localization
-Use the `Localization` component to provide translations over the application.
+Use the `LocalizationProvider` component to provide translations over the application.
 ```js
-import { Localization } from '@4react/localize'
+import { LocalizationProvider } from '@4react/localize'
 
 const App = () => (
-  <Localization>
+  <LocalizationProvider>
     // content
-  </Localization>
+  </LocalizationProvider>
 )
 ```
 
@@ -77,7 +77,7 @@ Translations are rendered as simple text with no additional style or structure.
 | languages | string[] | ['en'] | ***[optional]*** Set of supported languages. The first element is considered as fallback. |
 | namespaces | string[] | ['translations'] | ***[optional]*** Set of supported namespaces. |
 
-#### <Localization\>
+#### <LocalizationProvider\>
 
 | Props | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -88,6 +88,6 @@ Translations are rendered as simple text with no additional style or structure.
 | Props | Type | Default | Description |
 | --- | --- | --- | --- |
 | label | string | - | Label to localize. |
-| ns | string | - | ***[optional]*** Namespace to witch the label belongs. In case of no namespace specified, the `defaultNS` of the `Localization` component is used. |
+| ns | string | - | ***[optional]*** Namespace to witch the label belongs. In case of no namespace specified, the `defaultNS` of the `LocalizationProvider` component is used. |
 | fillers | object | - | ***[optional]*** Maps of elements to fills placeholders in label. Fillers could be of type **string, number or components**. |
 | lang | string | - | ***[optional]*** Language to override the current selected one. |

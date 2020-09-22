@@ -10,9 +10,11 @@
     "build:hooks": "yarn --cwd \"modules/hooks\" build",
     "build:flex": "yarn --cwd \"modules/flex\" build",
     "build:stories": "yarn --cwd \"modules/stories\" build",
+    "build:store": "yarn --cwd \"modules/store\" build",
+    "build:localize": "yarn --cwd \"modules/localize\" build",
     "build:skeleton": "yarn --cwd \"modules/skeleton\" build",
     "build:responsive": "yarn --cwd \"modules/responsive\" build",
-    "pre": "yarn build:syntax && yarn build:hooks && yarn build:flex && yarn build:stories && yarn build:skeleton && yarn build:responsive",
+    "pre": "yarn build:syntax && yarn build:hooks && yarn build:flex && yarn build:stories && yarn build:store && yarn build:localize && yarn build:skeleton && yarn build:responsive",
     "storybook": "start-storybook -s .storybook/static",
     "build:storybook": "build-storybook -o build-storybook -s .storybook/static"
   },
