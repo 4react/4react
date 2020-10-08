@@ -1,3 +1,6 @@
 export * from './methods/combineReducers'
 export * from './methods/createStore'
 export * from './model/StoreContext'
+export * from './model/StoreProvider'
+export * from './model/useStoreDataFactory'
+export * from './model/useStoreDispatchFactory'

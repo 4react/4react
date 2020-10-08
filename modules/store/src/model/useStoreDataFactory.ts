@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { StoreContext } from '../model/StoreContext'
+import { StoreContext, StoreContextValue } from './StoreContext'
 
 export type StoreHookSelector<S> = (store: S) => any
 
@@ -9,11 +9,10 @@ export interface StoreDataHook<S> {
 
 const identitySelector = <S>(store: S): S => store
 
-const useStoreDataFactory = <S>(context: StoreContext<S>): StoreDataHook<S> => (
+export const useStoreDataFactory = <S>(context: StoreContext<S>): StoreDataHook<S> => (
   (selector: StoreHookSelector<S> = identitySelector) => {
-    const { data } = useContext(context)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { data } = useContext<StoreContextValue<S>>(context)
     return selector(data)
   }
 )
-
-export default useStoreDataFactory

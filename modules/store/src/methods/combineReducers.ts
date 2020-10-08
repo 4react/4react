@@ -8,14 +8,14 @@ export const combineReducers = <S>(
   const defaultValue = initialValue || {}
   Object
     .keys(reducers)
-    .forEach((key) => {
-      if (!defaultValue.hasOwnProperty(key)) {
+    .forEach(key => {
+      if (!(key in defaultValue)) {
         // @ts-ignore
         defaultValue[key] = reducers[key](undefined, { type: undefined })
       }
     })
-  return (state = defaultValue as S, action) => {
-    return Object.keys(reducers).reduce(
+  return (state = defaultValue as S, action) => (
+    Object.keys(reducers).reduce(
       (nextState, key) => {
         // @ts-ignore
         nextState[key] = reducers[key](state[key], action)
@@ -23,7 +23,5 @@ export const combineReducers = <S>(
       },
       {}
     ) as S
-  }
+  )
 }
-
-export default combineReducers
