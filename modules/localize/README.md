@@ -1,72 +1,78 @@
 # @4react / localize
 
-Ready-to-use **i18n** configuration and components for React Applications.
-
-#### NOTE
-The purpose of this package is to provide a simple and standard solution for the largest amount of projects.
-
-It is mainly based on [***react-i18next***](https://github.com/i18next/react-i18next). Please consider to support their work.
-
-## Usage
-
-### Import dependency
+Localization for React applications.
 
 ```
 npm i @4react/localize
 ```
 
-### Init i18n
+##### Basic
 
-Initialize i18n with **initI18n**, optionally specifying *languages* and *namespaces*.
 ```js
-import { initI18n } from '@4react/localize'
-
-initI18n(
-  ['en', 'it', 'es'], // languages
-  ['common', 'profile'] // namespaces
-)
+t('name') // Name
 ```
 
-### Provide localization
-Use the `LocalizationProvider` component to provide translations over the application.
+##### Namespace
+
 ```js
+t('name') // Name
+t('profile:name') // Profile Name
+t('name', {}, { namespace: 'profile' }) // Profile Name
+t('profile:name', {}, { namespace: 'common' }) // Name
+```
+
+##### Transform
+
+```jsx
+t('welcome') // Welcome to the site!																// nome
+t('welcome', {}, { transform: 'lowercase' }) // welcome to the site!	
+t('welcome', {}, { transform: 'uppercase' }) // WELCOME TO THE SITE!	
+t('welcome', {}, { transform: 'capitalize' }) // Welcome To The Site!	
+```
+
+
+## Usage
+
+### Provide minimal configuration
+
+```jsx
 import { LocalizationProvider } from '@4react/localize'
 
 const App = () => (
-  <LocalizationProvider>
-    // content
+  <LocalizationProvider
+    languages={['en', 'it', 'fr']}
+    namespaces={['common', 'profile', 'news']}
+  >
+    ...
   </LocalizationProvider>
 )
 ```
 
 ### Translate labels
-Use the `Localized` component to translate labels.
 
-```js
+##### with hook
+
+```jsx
+import { useLocalize } from '@4react/localize'
+
+const Foo = () => {
+  const t = useLocalize()
+
+  ...
+
+  t('myNameIs', { name: 'Matteo' })
+}
+```
+
+##### with Component
+
+```jsx
 import { Localized } from '@4react/localize'
 
-const CustomComponent = () => (
-  <Localized label="awesome" />
+const Foo = () => (
+  <Localized label="MyNameIs" name="Matteo" />
 )
 ```
-
-#### ...and use any kind of filler (also components)
-
-```js
-const CustomComponent = () => (
-  <Localized
-    label="my-fillable-label"
-    fillers={{
-      name: 'Matteo',
-      age: 28,
-      component: <MyCustomFiller />
-    }}
-  />
-)
-
-// Hi, I'm {{name}} and I'm {{age}} years old. Look at this {{component}}!
-```
-Translations are rendered as simple text with no additional style or structure.
 
 ## Documentation
 

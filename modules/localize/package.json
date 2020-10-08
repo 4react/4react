@@ -3,8 +3,8 @@
   "version": "2020.2.0-alpha",
   "author": "Matteo Zanoncello",
   "license": "MIT",
-  "main": "lib/localize.js",
-  "module": "lib/localize.module.js",
+  "main": "lib/index.js",
+  "module": "lib/index.module.js",
   "types": "lib/types",
   "files": [
     "lib",
