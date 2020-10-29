@@ -1,1 +1,3 @@
-export { default } from '@4react/config/rollup'
+import configuration from '@4react/config/rollup'
+
+export default configuration

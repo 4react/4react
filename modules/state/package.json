@@ -14,9 +14,9 @@
     "build": "rollup -c"
   },
   "dependencies": {
-    "react": "^16.13.1"
+    "react": "^16.14.0"
   },
   "peerDependencies": {
-    "react": "^16.13.1"
+    "react": "^16.14.0"
   }
 }

@@ -1,9 +1,8 @@
-/* global module */
-
 module.exports = {
   parser: 'babel-eslint',
   env: {
-    node: true
+    node: true,
+    jest: true
   },
   parserOptions: {
     ecmaVersion: 2020,
@@ -12,7 +11,7 @@ module.exports = {
     }
   },
   settings: {
-    'node': {
+    node: {
       tryExtensions: ['.js', '.jsx', '.json']
     },
     'import/resolver': {

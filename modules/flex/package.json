@@ -17,6 +17,7 @@
     "story": "start-storybook -s .storybook/assets"
   },
   "dependencies": {
+    "@4react/data-types": "2020.2.0-alpha",
     "@4react/syntax": "2020.2.0-alpha",
     "react": "^16.10.2"
   },

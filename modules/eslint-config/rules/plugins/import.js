@@ -1,5 +1,4 @@
-/* global module */
-
+/* eslint-disable quote-props */
 module.exports = {
   plugins: [
     'import'

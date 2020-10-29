@@ -1,5 +1,6 @@
+import { DerivableBox, isNumber, parseBox } from '@4react/data-types'
 import {
-  BoxValue, ClassProp, parseBoxValue, parseSize, Size,
+  ClassProp, parseSize, Size,
   StyleProp, BoundedValue, parseBoundedValue, composeClass, composeStyle, parseItemOrList
 } from '@4react/syntax'
 import React, { FC } from 'react'
@@ -48,8 +49,8 @@ export interface FlexProps<P extends HTMLElement> {
   // size
   width?: BoundedValue<Size>
   height?: BoundedValue<Size>
-  margin?: BoxValue<Size>
-  padding?: BoxValue<Size>
+  margin?: DerivableBox<Size>
+  padding?: DerivableBox<Size>
 }
 
 export type FlexComponent<P extends HTMLElement = HTMLDivElement> = FC<FlexProps<P>>
@@ -99,8 +100,8 @@ export const Flex: FlexComponent = props => {
     ...parseItemOrList(className)
   ])
 
-  const margins = parseBoxValue(margin)
-  const paddings = parseBoxValue(padding)
+  const margins = parseBox(margin, isNumber)
+  const paddings = parseBox(padding, isNumber)
   const widths = parseBoundedValue(width)
   const heights = parseBoundedValue(height)
 

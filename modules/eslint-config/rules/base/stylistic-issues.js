@@ -244,12 +244,12 @@ module.exports = {
       ignoreComments: false,
     }],
     // disallow dangling underscores in identifiers
-    'no-underscore-dangle': ['error', {
-      allow: ['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'],
-      allowAfterThis: false,
-      allowAfterSuper: false,
-      enforceInMethodNames: true,
-    }],
+    'no-underscore-dangle': 'off', // ['off', {
+    //   allow: ['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'],
+    //   allowAfterThis: true,
+    //   allowAfterSuper: true,
+    //   enforceInMethodNames: true
+    // }],
     // disallow ternary operators when simpler alternatives exist
     'no-unneeded-ternary': ['error', { defaultAssignment: false }],
     // disallow whitespace before properties

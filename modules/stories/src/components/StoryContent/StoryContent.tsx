@@ -28,8 +28,8 @@ export const StoryContent: FC<StoryContentProps> = props => {
       className={[
         styles.container,
         styles[status],
-        ...parseItemOrList(className)]
-      }
+        ...parseItemOrList(className)
+      ]}
       justify={FlexJustify.CENTER}
       align={FlexAlign.CENTER}
       {...otherProps}

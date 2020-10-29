@@ -1,10 +1,9 @@
-/* global module */
-
 module.exports = {
   parser: '@typescript-eslint/parser',
   env: {
     es6: true,
-    node: true
+    node: true,
+    jest: true
   },
   parserOptions: {
     ecmaVersion: 2018,
@@ -16,7 +15,7 @@ module.exports = {
     project: './tsconfig.json'
   },
   settings: {
-    'node': {
+    node: {
       tryExtensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.sass', '.scss']
     },
     'import/resolver': {

@@ -1,5 +1,3 @@
-/* global module */
-
 module.exports = {
   extends: [
     'plugin:node/recommended'
@@ -14,12 +12,14 @@ module.exports = {
     /* disallow the assignment to exports */
     // 'node/no-exports-assign': 'error',
     /* disallow import declarations which import extraneous modules */
-    // 'node/no-extraneous-import': 'error',
+    'node/no-extraneous-import': ['error', {
+      allowModules: ['cypress', 'cypress-react-unit-test']
+    }],
     /* disallow require() expressions which import extraneous modules */
     // 'node/no-extraneous-require': 'error',
     /* disallow import declarations which import non-existence modules */
     // 'node/no-missing-import': 'error',
-    /*	disallow require() expressions which import non-existence modules */
+    /* disallow require() expressions which import non-existence modules */
     // 'node/no-missing-require': 'error',
     /* disallow new operators with calls to require */
     'node/no-new-require': 'warn',

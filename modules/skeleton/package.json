@@ -16,13 +16,13 @@
   "dependencies": {
     "@4react/flex": "2020.2.0-alpha",
     "@4react/syntax": "2020.2.0-alpha",
-    "react": "^16.13.1"
+    "react": "^16.14.0"
   },
   "peerDependencies": {
-    "react": "^16.13.1"
+    "react": "^16.14.0"
   },
   "devDependencies": {
-    "@storybook/addon-knobs": "^6.0.10",
+    "@storybook/addon-knobs": "^6.0.26",
     "@4react/stories": "2020.2.0-alpha"
   }
 }

@@ -24,7 +24,7 @@ const instanceOfBoxValueMap = (value: any): boolean => (
   )
 )
 
-export type BoxValueArray<T> = [T] | [T, T] | [T, T, T] | [T, T, T, T]
+export type BoxValueArray<T> = T[]
 
 export type BoxValue<T> = T | BoxValueArray<T> | BoxValueMap<T>
 
