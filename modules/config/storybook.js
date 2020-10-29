@@ -1,14 +1,31 @@
-/* eslint-disable @typescript-eslint/no-var-requires,@typescript-eslint/no-require-imports */
+// const { withKnobs } = require('@storybook/addon-knobs')
+// const { withActions } = require('@storybook/addon-actions')
+const { addons } = require('@storybook/addons')
+// const { addDecorator, addParameters } = require('@storybook/react')
+const { create } = require('@storybook/theming/create')
 
 exports.configureMain = options => {
-  const { stories, addons = [] } = options
+  const { stories, addons: customAddons = [] } = options
   return {
     addons: [
-      '@storybook/addon-knobs',
+      '@storybook/addon-viewport',
+      '@storybook/addon-controls',
       '@storybook/addon-actions',
-      ...addons
+      '@storybook/addon-a11y',
+      {
+        name: '@storybook/addon-docs',
+        options: {
+          configureJSX: true,
+          babelOptions: {},
+          sourceLoaderOptions: null
+        }
+      },
+      ...customAddons
     ],
     stories: stories,
+    typescript: {
+      reactDocgen: 'react-docgen'
+    },
     webpackFinal: async config => {
       config.node = {
         fs: 'empty'
@@ -20,9 +37,11 @@ exports.configureMain = options => {
           {
             loader: 'css-loader',
             options: {
+              // importLoaders: 1,
               modules: true
             }
           },
+          'resolve-url-loader',
           'sass-loader'
         ]
       })
@@ -35,11 +54,6 @@ exports.configureMain = options => {
     }
   }
 }
-
-const { addons } = require('@storybook/addons')
-const { withKnobs } = require('@storybook/addon-knobs')
-const { addDecorator, addParameters } = require('@storybook/react')
-const { create } = require('@storybook/theming/create')
 
 exports.configureManager = () => {
   addons.setConfig({
@@ -80,22 +94,23 @@ exports.configureManager = () => {
   })
 }
 
-exports.configurePreview = (options = {}) => {
-  const {
-    decorators = []
-  } = options
-
-  // decorators
-  addDecorator(withKnobs)
-  decorators.forEach(decorator => {
-    // @ts-ignore
-    addDecorator(decorator)
-  })
-
-  // parameters
-  addParameters({
-    knobs: {
-      escapeHTML: false
-    }
-  })
-}
+// exports.configurePreview = (options = {}) => {
+//   const {
+//     decorators = []
+//   } = options
+//
+//   // decorators
+//   addDecorator(withKnobs)
+//   addDecorator(withActions)
+//   decorators.forEach(decorator => {
+//     // @ts-ignore
+//     addDecorator(decorator)
+//   })
+//
+//   // parameters
+//   addParameters({
+//     knobs: {
+//       escapeHTML: false
+//     }
+//   })
+// }

@@ -1,0 +1,123 @@
+import { Flex } from '@4react/flex'
+import { ArgsTable, Canvas, Meta, Source, Story } from '@storybook/addon-docs/blocks'
+import dedent from 'ts-dedent'
+import { Text } from './Text'
+import { TextArgs } from './Text.args'
+
+<Meta
+  title="typography/Text"
+  argTypes={TextArgs}
+  parameters={{
+    docs: {
+      code: `ciao mondo`
+    }
+  }}
+/>
+
+# Text
+
+This is a description for the **Text** component.
+
+<Source
+  language="jsx"
+  code="import { Text } from '@4react/design'"
+/>
+
+<Source
+  language="jsx"
+  code={dedent(`
+    <Text.H1>
+      Hello World
+    </Text.H1>
+  `)}
+/>
+
+export const AbstractTemplate = (args) => (
+  <Flex column>
+    <Text.H1 {...args} style={{ marginBottom: 20 }} />
+    <Text.H2 {...args} style={{ marginBottom: 20 }} />
+    <Text.H3 {...args} style={{ marginBottom: 20 }} />
+    <Text.Bold {...args} style={{ marginBottom: 20 }} />
+    <Text.Body {...args} style={{ marginBottom: 20 }} />
+    <Text.Small {...args} style={{ marginBottom: 20 }} />
+    <Text.PreTitle {...args} style={{ marginBottom: 20 }} />
+  </Flex>
+);
+
+<Story name="Abstract">
+  {AbstractTemplate.bind({})}
+</Story>
+
+# Props
+
+<ArgsTable story="." />
+
+## H1
+
+export const H1Template = (args) => <Text.H1 {...args} />;
+
+<Canvas>
+  <Story name="H1">
+    {H1Template.bind({})}
+  </Story>
+</Canvas>
+
+## H2
+
+export const H2Template = (args) => <Text.H2 {...args} />;
+
+<Canvas>
+  <Story name="H2">
+    {H2Template.bind({})}
+  </Story>
+</Canvas>
+
+## H3
+
+export const H3Template = (args) => <Text.H3 {...args} />;
+
+<Canvas>
+  <Story name="H3">
+    {H3Template.bind({})}
+  </Story>
+</Canvas>
+
+## Bold
+
+export const BoldTemplate = (args) => <Text.Bold {...args} />;
+
+<Canvas>
+  <Story name="Bold">
+    {BoldTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Body
+
+export const BodyTemplate = (args) => <Text.Body {...args} />;
+
+<Canvas>
+  <Story name="Body">
+    {BodyTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Small
+
+export const SmallTemplate = (args) => <Text.Small {...args} />;
+
+<Canvas>
+  <Story name="Small">
+    {SmallTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## PreTitle
+
+export const PreTitleTemplate = (args) => <Text.PreTitle {...args} />;
+
+<Canvas>
+  <Story name="PreTitle">
+    {PreTitleTemplate.bind({})}
+  </Story>
+</Canvas>

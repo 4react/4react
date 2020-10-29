@@ -1,6 +1,8 @@
-const { configurePreview } = require('@4react/config/storybook')
-const { withGlobalStyle } = require('@4react/stories')
-
-configurePreview({
-  decorators: [withGlobalStyle]
-})
+export const parameters = {
+  viewMode: 'docs',
+  options: {
+    storySort: {
+      order: ['home', 'typography', 'layout', 'inputs']
+    }
+  }
+}

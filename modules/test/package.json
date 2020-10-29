@@ -1,20 +1,22 @@
 {
-  "name": "@4react/data-types",
+  "name": "@4react/test",
   "version": "2020.2.0-alpha",
   "author": "Matteo Zanoncello",
   "license": "MIT",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "files": [
-    "dist",
-    "package.json"
+    "lib",
+    "package.json",
+    "README.md"
   ],
   "scripts": {
     "build": "rollup -c"
   },
   "dependencies": {
     "@4react/errors": "^2020.2.0-alpha",
-    "@4react/syntax": "^2020.2.0-alpha"
+    "@4react/syntax": "^2020.2.0-alpha",
+    "react": "^16.14.0"
   },
   "devDependencies": {
     "@4react/config": "2020.2.0-alpha"

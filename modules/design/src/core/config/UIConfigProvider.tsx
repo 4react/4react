@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import UIConfig, { defaultUIConfig } from './UIConfig'
-import UIConfigContext from './UIConfigContext'
+import { UIConfig, defaultUIConfig } from './UIConfig'
+import { UIConfigContext } from './UIConfigContext'
 import { Theme } from '../theme/Theme'
 
 export interface UIConfigProviderProps {

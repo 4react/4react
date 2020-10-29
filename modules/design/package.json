@@ -14,19 +14,21 @@
     "story": "start-storybook -s .storybook/assets"
   },
   "dependencies": {
-    "react": "^16.13.1"
+    "@4react/syntax": "2020.2.0-alpha",
+    "react": "^16.14.0"
   },
   "devDependencies": {
     "@4react/config": "2020.2.0-alpha",
     "@4react/errors": "2020.2.0-alpha",
     "@4react/state": "2020.2.0-alpha",
     "@4react/stories": "2020.2.0-alpha",
-    "@storybook/react": "^6.0.10",
-    "@storybook/addon-knobs": "^6.0.10",
+    "@storybook/react": "^6.0.26",
+    "@storybook/addon-knobs": "^6.0.26",
+    "csstype": "^3.0.4",
     "node-sass": "^4.14.1",
     "styled-components": "^5.1.1"
   },
   "peerDependencies": {
-    "react": "^16.13.1"
+    "react": "^16.14.0"
   }
 }

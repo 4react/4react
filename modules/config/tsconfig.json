@@ -4,7 +4,7 @@
     "module": "commonjs",
     "lib": ["es5", "es6", "es7", "dom"],
     "jsx": "react",
-//    "moduleResolution": "Node",
+//    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "strict": true,
@@ -17,7 +17,8 @@
     ],
     "typeRoots": [
       "../../../node_modules/@types",
-      "./node_modules/@types"
+      "./node_modules/@types",
+      "global.d.ts"
     ]
   }
 }
