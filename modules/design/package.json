@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@4react/syntax": "2020.2.0-alpha",
+    "color-rgba": "^2.2.3",
     "react": "^16.14.0"
   },
   "devDependencies": {

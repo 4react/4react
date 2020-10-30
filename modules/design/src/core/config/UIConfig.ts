@@ -1,12 +1,12 @@
 import { defaultFontsConfig, FontsConfig } from './FontsConfig'
-import { defaultTheme, Theme } from '../theme/Theme'
+import { defaultThemeConfig, ThemeConfig } from './ThemeConfig'
 
 export interface UIConfig {
-  theme: Theme
+  theme: ThemeConfig
   fonts: FontsConfig
 }
 
 export const defaultUIConfig: UIConfig = {
-  theme: defaultTheme,
+  theme: defaultThemeConfig,
   fonts: defaultFontsConfig
 }

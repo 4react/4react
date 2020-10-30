@@ -1,0 +1,147 @@
+import { Flex } from '@4react/flex'
+import { Canvas, Meta, Source, Story } from '@storybook/addon-docs/blocks'
+import parseRGBA from 'color-rgba'
+import { withUIConfig } from '../../stories/withUIConfig'
+import { Text } from '../components/typography/Text/Text'
+import { useUIConfig } from '../core/config/useUIConfig'
+import { Color } from './color'
+
+<Meta
+  title="typography/Colors"
+  parameters={{
+    docs: {}
+  }}
+  decorators={[withUIConfig]}
+/>
+
+# Colors
+
+This is a description for **Colors**.
+
+<Source
+  language="jsx"
+  code="import { useUIColors } from '@4react/design'"
+/>
+
+<Source
+  language="jsx"
+  code="const colors = useUIColors()"
+/>
+
+export const ColorBox = ({ color }) => {
+  const { theme } = useUIConfig()
+  const rgba = theme.colors[color]
+  const [r,g,b,a] = parseRGBA(rgba)
+  const hex = `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`
+  return (
+    <Flex
+      column
+      justify="center"
+      align="center"
+      width={160}
+      height={80}
+      padding={5}
+      shrink={0}
+      style={{ backgroundColor: theme.colors[color], borderRadius: 8 }}
+    >
+      <Text.Bold>{color}</Text.Bold>
+      <Text.Small style={{ marginTop: 5 }}>{hex}</Text.Small>
+      <Text.Small style={{ marginTop: 5 }}>{a}</Text.Small>
+    </Flex>
+  )
+}
+
+## Primary
+
+Description for **Primary** colors.
+
+<Canvas withSource="none">
+  <Story name="Primary (100)">
+    <ColorBox color={Color.PRIMARY_100} />
+  </Story>
+  <Story name="Primary (75)">
+    <ColorBox color={Color.PRIMARY_75} />
+  </Story>
+  <Story name="Primary (50)">
+    <ColorBox color={Color.PRIMARY_50} />
+  </Story>
+  <Story name="Primary (25)">
+    <ColorBox color={Color.PRIMARY_25} />
+  </Story>
+</Canvas>
+
+## Secondary
+
+Description for **Secondary** colors.
+
+<Canvas withSource="none">
+  <Story name="Secondary (100)">
+    <ColorBox color={Color.SECONDARY_100} />
+  </Story>
+  <Story name="Secondary (75)">
+    <ColorBox color={Color.SECONDARY_75} />
+  </Story>
+  <Story name="Secondary (50)">
+    <ColorBox color={Color.SECONDARY_50} />
+  </Story>
+  <Story name="Secondary (25)">
+    <ColorBox color={Color.SECONDARY_25} />
+  </Story>
+</Canvas>
+
+## Tertiary
+
+Description for **Tertiary** colors.
+
+<Canvas withSource="none">
+  <Story name="Tertiary (100)">
+    <ColorBox color={Color.TERTIARY_100} />
+  </Story>
+  <Story name="Tertiary (75)">
+    <ColorBox color={Color.TERTIARY_75} />
+  </Story>
+  <Story name="Tertiary (50)">
+    <ColorBox color={Color.TERTIARY_50} />
+  </Story>
+  <Story name="Tertiary (25)">
+    <ColorBox color={Color.TERTIARY_25} />
+  </Story>
+</Canvas>
+
+## Success
+
+Description for **Success** colors.
+
+<Canvas withSource="none">
+  <Story name="Success (100)">
+    <ColorBox color={Color.SUCCESS_100} />
+  </Story>
+  <Story name="Success (75)">
+    <ColorBox color={Color.SUCCESS_75} />
+  </Story>
+  <Story name="Success (50)">
+    <ColorBox color={Color.SUCCESS_50} />
+  </Story>
+  <Story name="Success (25)">
+    <ColorBox color={Color.SUCCESS_25} />
+  </Story>
+</Canvas>
+
+## Error
+
+Description for **Error** colors.
+
+<Canvas withSource="none">
+  <Story name="Error (100)">
+    <ColorBox color={Color.ERROR_100} />
+  </Story>
+  <Story name="Error (75)">
+    <ColorBox color={Color.ERROR_75} />
+  </Story>
+  <Story name="Error (50)">
+    <ColorBox color={Color.ERROR_50} />
+  </Story>
+  <Story name="Error (25)">
+    <ColorBox color={Color.ERROR_25} />
+  </Story>
+</Canvas>

@@ -32,11 +32,12 @@ This is a description for the **Text** component.
   `)}
 />
 
-export const AbstractTemplate = (args) => (
+export const IndexTemplate = (args) => (
   <Flex column>
     <Text.H1 {...args} style={{ marginBottom: 20 }} />
     <Text.H2 {...args} style={{ marginBottom: 20 }} />
     <Text.H3 {...args} style={{ marginBottom: 20 }} />
+    <Text.Subtitle {...args} style={{ marginBottom: 20 }} />
     <Text.Bold {...args} style={{ marginBottom: 20 }} />
     <Text.Body {...args} style={{ marginBottom: 20 }} />
     <Text.Small {...args} style={{ marginBottom: 20 }} />
@@ -44,8 +45,8 @@ export const AbstractTemplate = (args) => (
   </Flex>
 );
 
-<Story name="Abstract">
-  {AbstractTemplate.bind({})}
+<Story name="Index">
+  {IndexTemplate.bind({})}
 </Story>
 
 # Props
@@ -79,6 +80,16 @@ export const H3Template = (args) => <Text.H3 {...args} />;
 <Canvas>
   <Story name="H3">
     {H3Template.bind({})}
+  </Story>
+</Canvas>
+
+## Subtitle
+
+export const SubtitleTemplate = (args) => <Text.Subtitle {...args} />;
+
+<Canvas>
+  <Story name="Subtitle">
+    {SubtitleTemplate.bind({})}
   </Story>
 </Canvas>
 
