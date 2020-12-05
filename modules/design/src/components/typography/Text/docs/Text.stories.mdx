@@ -18,25 +18,20 @@ This is a description for the **Text** component.
   code="import { Text } from '@4react/design'"
 />
 
-export const IndexTemplate = (args) => (
+<Story name="Index">
   <Flex column>
-    <Text.H1 {...args} style={{ marginBottom: 20 }} />
-    <Text.H2 {...args} style={{ marginBottom: 20 }} />
-    <Text.H3 {...args} style={{ marginBottom: 20 }} />
-    <Text.Subtitle {...args} style={{ marginBottom: 20 }} />
-    <Text.Bold {...args} style={{ marginBottom: 20 }} />
-    <Text.Body {...args} style={{ marginBottom: 20 }} />
-    <Text.Small {...args} style={{ marginBottom: 20 }} />
-    <Text.PreTitle {...args} style={{ marginBottom: 20 }} />
+    <Text.H1 style={{ marginBottom: 20 }}>Header 1</Text.H1>
+    <Text.H2 style={{ marginBottom: 20 }}>Header 2</Text.H2>
+    <Text.H3 style={{ marginBottom: 20 }}>Header 3</Text.H3>
+    <Text.Subtitle style={{ marginBottom: 20 }}>Subtitle</Text.Subtitle>
+    <Text.Bold style={{ marginBottom: 20 }}>Bold</Text.Bold>
+    <Text.Body style={{ marginBottom: 20 }}>Body</Text.Body>
+    <Text.Small style={{ marginBottom: 20 }}>Small</Text.Small>
+    <Text.PreTitle style={{ marginBottom: 20 }}>PreTitle</Text.PreTitle>
   </Flex>
-);
-
-<Story
-  name="Index"
-  argTypes={{ children: { defaultValue: 'Hello World', control: { type: 'text' } } }}
->
-  {IndexTemplate.bind({})}
 </Story>
+
+## H1
 
 <Source
   language="jsx"
@@ -47,70 +42,171 @@ export const IndexTemplate = (args) => (
   `)}
 />
 
-# Props
-
-<ArgsTable story="Index" />
-
-## H1
-
-<Canvas>
-  <Story name="H1">
-    <Text.H1>Hello World</Text.H1>
+<Canvas withSource="none">
+  <Story
+    name="H1"
+    argTypes={{ children: { defaultValue: 'Hello World', control: { type: 'text' } } }}
+  >
+    {(args) => <Text.H1 {...args}/>}
   </Story>
 </Canvas>
+
+<ArgsTable story="H1" include={['children']} />
 
 ## H2
 
-<Canvas>
-  <Story name="H2">
-    <Text.H2>Hello World</Text.H2>
+<Source
+  language="jsx"
+  code={dedent(`
+    <Text.H2>
+      Hello World
+    </Text.H2>
+  `)}
+/>
+
+<Canvas withSource="none">
+  <Story
+    name="H2"
+    argTypes={{ children: { defaultValue: 'Hello World', control: { type: 'text' } } }}
+  >
+    {(args) => <Text.H2 {...args}/>}
   </Story>
 </Canvas>
+
+<ArgsTable story="H2" include={['children']} />
 
 ## H3
 
-<Canvas>
-  <Story name="H3">
-    <Text.H3>Hello World</Text.H3>
+<Source
+  language="jsx"
+  code={dedent(`
+    <Text.H3>
+      Hello World
+    </Text.H3>
+  `)}
+/>
+
+<Canvas withSource="none">
+  <Story
+    name="H3"
+    argTypes={{ children: { defaultValue: 'Hello World', control: { type: 'text' } } }}
+  >
+    {(args) => <Text.H3 {...args}/>}
   </Story>
 </Canvas>
+
+<ArgsTable story="H3" include={['children']} />
 
 ## Subtitle
 
-<Canvas>
-  <Story name="Subtitle">
-    <Text.Subtitle>Hello World</Text.Subtitle>
+<Source
+  language="jsx"
+  code={dedent(`
+    <Text.Subtitle>
+      Hello World
+    </Text.Subtitle>
+  `)}
+/>
+
+<Canvas withSource="none">
+  <Story
+    name="Subtitle"
+    argTypes={{ children: { defaultValue: 'Hello World', control: { type: 'text' } } }}
+  >
+    {(args) => <Text.Subtitle {...args}/>}
   </Story>
 </Canvas>
+
+<ArgsTable story="Subtitle" include={['children']} />
 
 ## Bold
 
-<Canvas>
-  <Story name="Bold">
-    <Text.Bold>Hello World</Text.Bold>
+<Source
+  language="jsx"
+  code={dedent(`
+    <Text.Bold>
+      Hello World
+    </Text.Bold>
+  `)}
+/>
+
+<Canvas withSource="none">
+  <Story
+    name="Bold"
+    argTypes={{ children: { defaultValue: 'Hello World', control: { type: 'text' } } }}
+  >
+    {(args) => <Text.Bold {...args}/>}
   </Story>
 </Canvas>
+
+<ArgsTable story="Bold" include={['children']} />
 
 ## Body
 
-<Canvas>
-  <Story name="Body">
-    <Text.Body>Hello World</Text.Body>
+<Source
+  language="jsx"
+  code={dedent(`
+    <Text.Body>
+      Hello World
+    </Text.Body>
+  `)}
+/>
+
+<Canvas withSource="none">
+  <Story
+    name="Body"
+    argTypes={{ children: { defaultValue: 'Hello World', control: { type: 'text' } } }}
+  >
+    {(args) => <Text.Body {...args}/>}
   </Story>
 </Canvas>
+
+<ArgsTable story="Body" include={['children']} />
 
 ## Small
 
-<Canvas>
-  <Story name="Small">
-    <Text.Small>Hello World</Text.Small>
+<Source
+  language="jsx"
+  code={dedent(`
+    <Text.Small>
+      Hello World
+    </Text.Small>
+  `)}
+/>
+
+<Canvas withSource="none">
+  <Story
+    name="Small"
+    argTypes={{ children: { defaultValue: 'Hello World', control: { type: 'text' } } }}
+  >
+    {(args) => <Text.Small {...args}/>}
   </Story>
 </Canvas>
+
+<ArgsTable story="Small" include={['children']} />
 
 ## PreTitle
 
-<Canvas>
-  <Story name="PreTitle">
-    <Text.PreTitle>Hello World</Text.PreTitle>
+<Source
+  language="jsx"
+  code={dedent(`
+    <Text.PreTitle>
+      Hello World
+    </Text.PreTitle>
+  `)}
+/>
+
+<Canvas withSource="none">
+  <Story
+    name="PreTitle"
+    argTypes={{ children: { defaultValue: 'Hello World', control: { type: 'text' } } }}
+  >
+    {(args) => <Text.PreTitle {...args}/>}
   </Story>
 </Canvas>
+
+<ArgsTable story="PreTitle" include={['children']} />
+
+# Props
+
+<ArgsTable story="Index" />
