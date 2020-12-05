@@ -3,30 +3,24 @@
   "version": "2020.2.0-alpha",
   "author": "Matteo Zanoncello",
   "license": "MIT",
-  "repository": {
-    "url": "https://github.com/4react/4react"
-  },
   "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "package.json"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "story": "start-storybook -s .storybook/assets"
+    "build": "rollup -c"
   },
   "dependencies": {
-    "@4react/data-types": "2020.2.0-alpha",
-    "@4react/syntax": "2020.2.0-alpha",
-    "react": "^16.10.2"
-  },
-  "peerDependencies": {
-    "react": "^16.10.2"
+    "@4react/errors": "^2020.2.0-alpha",
+    "@4react/data-types": "^2020.2.0-alpha",
+    "react": "^17.0.1"
   },
   "devDependencies": {
-    "@4react/config": "2020.2.0-alpha",
-    "@4react/stories": "2020.2.0-alpha",
-    "@storybook/addon-knobs": "^6.0.10"
+    "@4react/config": "2020.2.0-alpha"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1"
   }
 }

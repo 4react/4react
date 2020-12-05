@@ -1,0 +1,37 @@
+import { isBoolean as isBooleanImpl } from '@4react/data-types'
+import { ArgsTable, Meta, Source, Story } from '@storybook/addon-docs/blocks'
+import { arg } from '../../../../../.storybook/utils/arg'
+import { control } from '../../../../../.storybook/utils/control'
+import { Method } from '../../../../../.storybook/utils/Method'
+
+<Meta title="data-types/Primitives/Boolean" />
+
+# Boolean
+
+Utilities for the usage of boolean data.
+
+## isBoolean
+
+<Source
+  language="jsx"
+  code="import { isBoolean } from '@4react/data-types'"
+/>
+
+<Story
+  name="isBoolean"
+  argTypes={{
+    value: control(arg('value', true, 'any', 'The value to check'), 'text', 'true')
+  }}
+>
+  {(args) => (
+    <Method
+      name="isBoolean"
+      impl={isBooleanImpl}
+      params={[args.value]}
+    />
+  )}
+</Story>
+
+### Params
+
+<ArgsTable story="isBoolean" />

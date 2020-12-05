@@ -16,7 +16,7 @@
   "dependencies": {
     "@4react/errors": "^2020.2.0-alpha",
     "@4react/syntax": "^2020.2.0-alpha",
-    "react": "^16.14.0"
+    "react": "^17.0.1"
   },
   "devDependencies": {
     "@4react/config": "2020.2.0-alpha"

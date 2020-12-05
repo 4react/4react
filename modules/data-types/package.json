@@ -14,9 +14,14 @@
   },
   "dependencies": {
     "@4react/errors": "^2020.2.0-alpha",
-    "@4react/syntax": "^2020.2.0-alpha"
+    "lodash": "^4.17.20",
+    "react": "^17.0.1"
   },
   "devDependencies": {
-    "@4react/config": "2020.2.0-alpha"
+    "@4react/config": "2020.2.0-alpha",
+    "@types/lodash": "^4.14.164"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1"
   }
 }

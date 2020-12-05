@@ -14,10 +14,10 @@
     "story": "start-storybook -s .storybook/assets"
   },
   "dependencies": {
-    "react": "^16.14.0"
+    "react": "^17.0.1"
   },
   "peerDependencies": {
-    "react": "^16.14.0"
+    "react": "^17.0.1"
   },
   "devDependencies": {
     "@4react/stories": "2020.2.0-alpha",

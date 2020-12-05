@@ -1,0 +1,63 @@
+import { isString as isStringImpl, isStringEmpty as isStringEmptyImpl } from '@4react/data-types'
+import { ArgsTable, Meta, Source, Story } from '@storybook/addon-docs/blocks'
+import { arg } from '../../../../../.storybook/utils/arg'
+import { control } from '../../../../../.storybook/utils/control'
+import { Method } from '../../../../../.storybook/utils/Method'
+
+<Meta title="data-types/Primitives/String" />
+
+# String
+
+Utilities for the usage of string data.
+
+## isString
+
+<Source
+  language="jsx"
+  code="import { isString } from '@4react/data-types'"
+/>
+
+<Story
+  name="isString"
+  argTypes={{
+    value: control(arg('value', true, 'any', 'The value to check'), 'text', '\'Hello World\'')
+  }}
+>
+  {args => (
+    <Method
+      name="isString"
+      impl={isStringImpl}
+      params={[args.value]}
+    />
+  )}
+</Story>
+
+### Params
+
+<ArgsTable story="isString" />
+
+## isStringEmpty
+
+<Source
+  language="jsx"
+  code="import { isStringEmpty } from '@4react/data-types'"
+/>
+
+<Story
+  name="isStringEmpty"
+  argTypes={{
+    value: control(arg('value', true, 'string', 'The string to check'), 'text', '\'\'')
+  }}
+>
+  {args => (
+    <Method
+      name="isStringEmpty"
+      impl={isStringEmptyImpl}
+      params={[args.value]}
+    />
+  )}
+</Story>
+
+### Params
+
+<ArgsTable story="isStringEmpty" />

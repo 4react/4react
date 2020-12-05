@@ -22,12 +22,12 @@
     "@4react/errors": "^2020.2.0-alpha",
     "@4react/hooks": "^2020.2.0-alpha",
     "lodash": "^4.17.19",
-    "react": "^16.10.2"
+    "react": "^17.0.1"
   },
   "peerDependencies": {
     "@4react/errors": "^2020.2.0-alpha",
     "@4react/hooks": "^2020.2.0-alpha",
-    "react": "^16.10.2"
+    "react": "^17.0.1"
   },
   "devDependencies": {
     "@4react/eslint-config": "^2020.1.3",

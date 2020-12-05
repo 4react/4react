@@ -1,0 +1,294 @@
+import { Flex } from '@4react/flex'
+import { ArgsTable, Canvas, Meta, Source, Story } from '@storybook/addon-docs/blocks'
+import dedent from 'ts-dedent'
+import { ComponentSource } from '../../../../../../.storybook/utils/ComponentSource'
+import { FlexArgs } from './Flex.args'
+import styles from './Flex.stories.sass'
+
+<Meta
+  title="flex/Flex"
+  argTypes={FlexArgs}
+/>
+
+# Flex
+
+This is a description for the **Flex** component.
+
+<Source
+  language="jsx"
+  code="import { Flex } from '@4react/flex'"
+/>
+
+<Canvas>
+  <Story
+    name="Index"
+    parameters={{
+      docs: {
+        source: {
+          code: dedent`
+            <Flex row justify="space-between" align="center">
+              <Flex self="start" />
+              <Flex shrink />
+              <Flex column self="stretch" align="center">
+                <Flex self="stretch" grow />
+                <Flex />
+                <Flex self="end" grow={4} />
+              </Flex>
+            </Flex>`
+        }
+      }
+    }}
+  >
+    <Flex row justify="space-between" align="center" className={styles.index}>
+      <Flex self="start" className={styles.item} />
+      <Flex shrink className={styles.item} />
+      <Flex column self="stretch" align="center" className={styles.innerContainer}>
+        <Flex self="stretch" grow className={styles.item} />
+        <Flex className={styles.item} />
+        <Flex self="end" grow={4} className={styles.item} />
+      </Flex>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Display
+
+export const FlexTemplate = (args) => (
+  <>
+    <ComponentSource name="Flex" args={{ ...args, children: '...' }} />
+    <Flex {...args} className={styles.container}>
+      <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 96 }}>1</Flex>
+      <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 128 }}>2</Flex>
+      <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 32 }}>3</Flex>
+      <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 64 }}>4</Flex>
+    </Flex>
+  </>
+)
+
+<Story
+  name="Display"
+  argTypes={{ inline: { control: { type: 'boolean' } } }}
+>
+  {FlexTemplate.bind({})}
+</Story>
+
+<ArgsTable story="Display" include={['inline']} />
+
+### Direction
+
+<Story
+  name="Direction"
+  argTypes={{
+    direction: {
+      defaultValue: 'row',
+      control: { type: 'inline-radio', options: [undefined, 'row', 'column'] }
+    },
+    reverse: { control: { type: 'boolean' } },
+    row: { control: { type: 'boolean' } },
+    column: { control: { type: 'boolean' } }
+  }}
+>
+  {FlexTemplate.bind({})}
+</Story>
+
+<ArgsTable story="Direction" include={['direction', 'reverse', 'row', 'column']} />
+
+### Justify
+
+<Canvas withSource="none">
+  <Story
+    name="Justify"
+    argTypes={{
+      justify: {
+        defaultValue: 'start',
+        control: {
+          type: 'inline-radio',
+          options: ['start', 'end', 'center', 'space-between', 'space-around', 'space-evenly']
+        },
+      },
+      start: { control: { type: 'boolean' } },
+      end: { control: { type: 'boolean' } },
+      center: { control: { type: 'boolean' } },
+      spaceBetween: { control: { type: 'boolean' } },
+      spaceAround: { control: { type: 'boolean' } },
+      spaceEvenly: { control: { type: 'boolean' } }
+    }}
+  >
+    {(args) => (
+      <Flex {...args} className={styles.container}>
+        <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 96 }}>1</Flex>
+        <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 128 }}>2</Flex>
+        <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 32 }}>3</Flex>
+        <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 64 }}>4</Flex>
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Justify" include={['justify', 'start', 'end', 'center', 'spaceBetween', 'spaceAround', 'spaceEvenly']} />
+
+### Alignment
+
+<Canvas withSource="none">
+  <Story
+    name="Alignment"
+    argTypes={{
+      align: {
+        defaultValue: 'start',
+        control: {
+          type: 'inline-radio',
+          options: ['start', 'end', 'center', 'stretch', 'baseline']
+        }
+      },
+    }}
+  >
+    {(args) => (
+      <Flex {...args} inline className={styles.container} height={300}>
+        <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 96 }}>1</Flex>
+        <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 128 }}>2</Flex>
+        <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 32 }}>3</Flex>
+        <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 64 }}>4</Flex>
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Alignment" include={['align']} />
+
+### Multi-line
+
+<Canvas withSource="none">
+  <Story
+    name="Multi-line"
+    argTypes={{
+      wrap: {
+        defaultValue: true,
+        control: {
+          type: 'inline-radio',
+          options: [true, false, 'reverse'],
+        }
+      },
+      lines: {
+        defaultValue: 'start',
+        control: {
+          type: 'inline-radio',
+          options: [ 'start', 'end', 'center', 'stretch', 'space-between', 'space-around', 'space-evenly']
+        }
+      },
+    }}
+  >
+    {(args) => (
+      <Flex {...args} inline className={styles.container} width={400} height={400}>
+        <Flex center className={styles.content} width={{ min: 96 }} height={{ min: 64 }}>1</Flex>
+        <Flex center className={styles.content} width={{ min: 128 }} height={{ min: 64 }}>2</Flex>
+        <Flex center className={styles.content} width={{ min: 32 }} height={{ min: 64 }}>3</Flex>
+        <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 64 }}>4</Flex>
+        <Flex center className={styles.content} width={{ min: 96 }} height={{ min: 64 }}>5</Flex>
+        <Flex center className={styles.content} width={{ min: 128 }} height={{ min: 64 }}>6</Flex>
+        <Flex center className={styles.content} width={{ min: 32 }} height={{ min: 64 }}>7</Flex>
+        <Flex center className={styles.content} width={{ min: 64 }} height={{ min: 64 }}>8</Flex>
+        <Flex center className={styles.content} width={{ min: 96 }} height={{ min: 64 }}>9</Flex>
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Multi-line" include={['wrap', 'lines']} />
+
+### As item
+
+<Canvas withSource="none">
+  <Story
+    name="AsItem"
+    argTypes={{
+      self: {
+        defaultValue: 'center',
+        control: {
+          type: 'inline-radio',
+          options: ['start', 'end', 'center', 'stretch', 'baseline']
+        }
+      },
+      order: {
+        defaultValue: '1',
+        control: {
+          type: 'number'
+        }
+      },
+      basis: {
+        defaultValue: '64px',
+        control: {
+          type: 'text'
+        }
+      },
+      grow: {
+        defaultValue: 0,
+        control: {
+          type: 'number'
+        }
+      },
+      shrink: {
+        defaultValue: 1,
+        control: {
+          type: 'number'
+        }
+      }
+    }}
+  >
+    {(args) => (
+      <Flex center className={styles.container} height={300}>
+        <Flex {...args} className={styles.content} center height={{ min: 96 }}>Item</Flex>
+        <Flex className={styles.content} center order={2} width={{ min: 64 }} height={{ min: 128 }}>2</Flex>
+        <Flex className={styles.content} center order={4} width={{ min: 64 }} height={{ min: 32 }}>4</Flex>
+        <Flex className={styles.content} center order={6} width={{ min: 64 }} height={{ min: 64 }}>6</Flex>
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="AsItem" include={['self', 'order', 'basis', 'grow', 'shrink']} />
+
+### Sizing
+
+<Canvas withSource="none">
+  <Story
+    name="Sizing"
+    argTypes={{
+      width: {
+        defaultValue: 128,
+        control: {
+          type: 'object'
+        }
+      },
+      height: {
+        defaultValue: { base: 128, min: 64 },
+        control: {
+          type: 'object'
+        }
+      },
+      margin: {
+        defaultValue: { base: 8, left: 64 },
+        control: {
+          type: 'object'
+        }
+      },
+      padding: {
+        defaultValue: [16, 8, 24],
+        control: {
+          type: 'object'
+        }
+      },
+    }}
+  >
+    {(args) => (
+      <Flex {...args} center className={styles.container}>
+        <Flex width="100%" height="100%" style={{ backgroundColor: 'white' }} />
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Sizing" include={['width', 'height', 'margin', 'padding']} />
+
+# Props
+
+<ArgsTable story="Index" />

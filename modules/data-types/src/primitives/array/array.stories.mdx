@@ -1,0 +1,63 @@
+import { isArray as isArrayImpl, isArrayEmpty as isArrayEmptyImpl } from '@4react/data-types'
+import { ArgsTable, Meta, Source, Story } from '@storybook/addon-docs/blocks'
+import { arg } from '../../../../../.storybook/utils/arg'
+import { control } from '../../../../../.storybook/utils/control'
+import { Method } from '../../../../../.storybook/utils/Method'
+
+<Meta title="data-types/Primitives/Array" />
+
+# Array
+
+Utilities for the usage of array data.
+
+## isArray
+
+<Source
+  language="jsx"
+  code="import { isArray } from '@4react/data-types'"
+/>
+
+<Story
+  name="isArray"
+  argTypes={{
+    value: control(arg('value', true, 'any', 'The value to check'), 'text', '[123, true, \'Hello\']')
+  }}
+>
+  {args => (
+    <Method
+      name="isArray"
+      impl={isArrayImpl}
+      params={[args.value]}
+    />
+  )}
+</Story>
+
+### Params
+
+<ArgsTable story="isArray" />
+
+## isArrayEmpty
+
+<Source
+  language="jsx"
+  code="import { isArrayEmpty } from '@4react/data-types'"
+/>
+
+<Story
+  name="isArrayEmpty"
+  argTypes={{
+    value: control(arg('value', true, 'any[]', 'The array to check'), 'text', '[]')
+  }}
+>
+  {args => (
+    <Method
+      name="isArrayEmpty"
+      impl={isArrayEmptyImpl}
+      params={[args.value]}
+    />
+  )}
+</Story>
+
+### Params
+
+<ArgsTable story="isArrayEmpty" />

@@ -17,12 +17,12 @@
   "dependencies": {
     "@4react/errors": "^2020.2.0-alpha",
     "@4react/syntax": "^2020.2.0-alpha",
-    "react": "^16.10.2",
+    "react": "^17.0.1",
     "recoil": "^0.0.10",
     "node-fetch": "^2.6.0"
   },
   "peerDependencies": {
-    "react": "^16.10.2"
+    "react": "^17.0.1"
   },
   "devDependencies": {
     "@4react/config": "2020.2.0-alpha",

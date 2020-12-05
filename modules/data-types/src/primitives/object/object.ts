@@ -1,4 +1,4 @@
-import { isArray } from './array'
+import { isArray } from '../array/array'
 
 export const isObject = (value: any): boolean => (
   typeof value === 'object'
@@ -11,5 +11,5 @@ export const isObjectEmpty = (value: Record<any, any>): boolean => (
 )
 
 export const hasObjectKey = (value: Record<any, any>, key: string): boolean => (
-  Object.keys(value).includes(key)
+  key in value
 )

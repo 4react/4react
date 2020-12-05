@@ -1,12 +1,6 @@
-import { size } from '@4react/stories'
-import { boolean, number, select, text } from '@storybook/addon-knobs'
 import React from 'react'
-import { Flex } from './Flex'
+import { Flex } from '../Flex'
 import styles from './Flex.stories.sass'
-import { FlexAlign } from '../../model/FlexAlign'
-import { FlexDirection } from '../../model/FlexDirection'
-import { FlexJustify } from '../../model/FlexJustify'
-import { FlexLineAlign } from '../../model/FlexLineAlign'
 
 export default {
   title: 'flex/Flex',

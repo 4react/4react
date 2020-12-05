@@ -1,23 +1,11 @@
-import { CSSProperties } from 'react'
+import { isBoolean, isNumber } from '@4react/data-types'
 
 export type FlexSize = boolean | number
 
-export const flexGrow = (size?: FlexSize): CSSProperties => {
-  if (size !== undefined) {
-    if (typeof size === 'number') return { flexGrow: size }
-    if (size) {
-      return { flexGrow: 1 }
-    }
+export const parseFlexSize = (size?: FlexSize): number | undefined => {
+  if (size) {
+    if (isNumber(size)) return size as number
+    if (isBoolean(size)) return size ? 1 : undefined
   }
-  return {}
-}
-
-export const flexShrink = (size?: FlexSize): CSSProperties => {
-  if (size !== undefined) {
-    if (typeof size === 'number') return { flexShrink: size }
-    if (size) {
-      return { flexShrink: 1 }
-    }
-  }
-  return {}
+  return undefined
 }

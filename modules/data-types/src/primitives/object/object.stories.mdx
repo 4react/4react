@@ -1,0 +1,94 @@
+import {
+  isObject as isObjectImpl,
+  isObjectEmpty as isObjectEmptyImpl,
+  hasObjectKey as hasObjectKeyImpl
+} from '@4react/data-types'
+import { ArgsTable, Meta, Source, Story } from '@storybook/addon-docs/blocks'
+import { arg } from '../../../../../.storybook/utils/arg'
+import { control } from '../../../../../.storybook/utils/control'
+import { Method } from '../../../../../.storybook/utils/Method'
+
+<Meta title="data-types/Primitives/Object" />
+
+# Object
+
+Utilities for the usage of object data.
+
+## isObject
+
+<Source
+  language="jsx"
+  code="import { isObject } from '@4react/data-types'"
+/>
+
+<Story
+  name="isObject"
+  argTypes={{
+    value: control(arg('value', true, 'any', 'The value to check'), 'text', '{ name: \'John\', age: 123 }')
+  }}
+>
+  {(args) => (
+    <Method
+      name="isObject"
+      impl={isObjectImpl}
+      params={[args.value]}
+    />
+  )}
+</Story>
+
+### Params
+
+<ArgsTable story="isObject" />
+
+## isObjectEmpty
+
+<Source
+  language="jsx"
+  code="import { isObjectEmpty } from '@4react/data-types'"
+/>
+
+<Story
+  name="isObjectEmpty"
+  argTypes={{
+    value: control(arg('value', true, 'object', 'The object to check'), 'text', '{}')
+  }}
+>
+  {(args) => (
+    <Method
+      name="isObjectEmpty"
+      impl={isObjectEmptyImpl}
+      params={[args.value]}
+    />
+  )}
+</Story>
+
+### Params
+
+<ArgsTable story="isObjectEmpty" />
+
+## hasObjectKey
+
+<Source
+  language="jsx"
+  code="import { hasObjectKey } from '@4react/data-types'"
+/>
+
+<Story
+  name="hasObjectKey"
+  argTypes={{
+    value: control(arg('value', true, 'object', 'The object to check'), 'text', '{ name: \'John\', age: 123 }'),
+    key: control(arg('key', true, 'string', 'The key to looking for inside the object'), 'text', 'age')
+  }}
+>
+  {(args) => (
+    <Method
+      name="hasObjectKey"
+      impl={hasObjectKeyImpl}
+      params={[args.value, `'${args.key}'`]}
+    />
+  )}
+</Story>
+
+### Params
+
+<ArgsTable story="hasObjectKey" />

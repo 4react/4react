@@ -1,0 +1,42 @@
+import { parseClassName as parseClassNameImpl } from '@4react/data-types'
+import { ArgsTable, Meta, Source, Story } from '@storybook/addon-docs/blocks'
+import { arg } from '../../../../../.storybook/utils/arg'
+import { control } from '../../../../../.storybook/utils/control'
+import { Method } from '../../../../../.storybook/utils/Method'
+
+<Meta title="data-types/React/ClassNames" />
+
+# ClassNames
+
+Description for the ClassName type.
+
+<Source
+  language="jsx"
+  code="<MyComponent className={['container', 'active']} />"
+/>
+
+## parseClassName
+
+<Source
+  language="jsx"
+  code="import { parseClassName } from '@4react/data-types'"
+/>
+
+<Story
+  name="parseClassName"
+  argTypes={{
+    classNames: control(arg('classNames', false, 'ClassName', 'Source classes to parse'), 'text', '[\'container\', \'active\']')
+  }}
+>
+  {args => (
+    <Method
+      name="parseClassName"
+      impl={parseClassNameImpl}
+      params={[args.classNames]}
+    />
+  )}
+</Story>
+
+### Params
+
+<ArgsTable story="parseClassName" />
