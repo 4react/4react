@@ -22,7 +22,6 @@
     "react": "^17.0.1"
   },
   "devDependencies": {
-    "@storybook/addon-knobs": "^6.0.26",
     "@4react/stories": "2020.2.0-alpha"
   }
 }

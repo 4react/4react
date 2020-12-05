@@ -16,11 +16,6 @@
   "dependencies": {
     "@4react/flex": "2020.2.0-alpha",
     "@4react/syntax": "2020.2.0-alpha",
-    "@storybook/addons": "^6.0.26",
-    "@storybook/addon-actions": "^6.0.26",
-    "@storybook/addon-knobs": "^6.0.26",
-    "@storybook/react": "^6.0.26",
-    "@storybook/preset-scss": "^1.0.2",
     "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
     "file-loader": "^6.0.0",
@@ -34,11 +29,6 @@
     "sass-loader": "^9.0.3"
   },
   "peerDependencies": {
-    "@storybook/addons": "^6.0.26",
-    "@storybook/addon-actions": "^6.0.26",
-    "@storybook/addon-knobs": "^6.0.26",
-    "@storybook/react": "^6.0.26",
-    "@storybook/preset-scss": "^1.0.2",
     "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
     "file-loader": "^6.0.0",

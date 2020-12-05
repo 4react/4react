@@ -1,17 +1,11 @@
-// const { withKnobs } = require('@storybook/addon-knobs')
-// const { withActions } = require('@storybook/addon-actions')
+/* eslint-disable @typescript-eslint/no-var-requires,@typescript-eslint/no-require-imports */
 const { addons } = require('@storybook/addons')
-// const { addDecorator, addParameters } = require('@storybook/react')
 const { create } = require('@storybook/theming/create')
 
 exports.configureMain = options => {
   const { stories, addons: customAddons = [] } = options
   return {
     addons: [
-      '@storybook/addon-viewport',
-      '@storybook/addon-controls',
-      '@storybook/addon-actions',
-      '@storybook/addon-a11y',
       {
         name: '@storybook/addon-docs',
         options: {
@@ -20,6 +14,10 @@ exports.configureMain = options => {
           sourceLoaderOptions: null
         }
       },
+      '@storybook/addon-controls',
+      '@storybook/addon-viewport',
+      '@storybook/addon-actions',
+      '@storybook/addon-a11y',
       ...customAddons
     ],
     stories: stories,
@@ -93,24 +91,3 @@ exports.configureManager = () => {
     })
   })
 }
-
-// exports.configurePreview = (options = {}) => {
-//   const {
-//     decorators = []
-//   } = options
-//
-//   // decorators
-//   addDecorator(withKnobs)
-//   addDecorator(withActions)
-//   decorators.forEach(decorator => {
-//     // @ts-ignore
-//     addDecorator(decorator)
-//   })
-//
-//   // parameters
-//   addParameters({
-//     knobs: {
-//       escapeHTML: false
-//     }
-//   })
-// }

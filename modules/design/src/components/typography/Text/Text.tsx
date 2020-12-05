@@ -1,4 +1,4 @@
-import { ClassProp, composeClass, composeStyle, StyleProp } from '@4react/syntax'
+import { ClassNames, parseClassName, parseStyle, Styles } from '@4react/data-types'
 import React, { FC } from 'react'
 import { fontConfigToCSS } from '../../../core/config/FontsConfig'
 import { useUIConfig } from '../../../core/config/useUIConfig'
@@ -6,8 +6,8 @@ import { Font } from '../../../typography/font'
 import { rem } from '../../../typography/size'
 
 export interface TextProps {
-  className?: ClassProp
-  style?: StyleProp
+  className?: ClassNames
+  style?: Styles
 }
 
 export interface TextFactoryProps extends TextProps {
@@ -22,9 +22,9 @@ const TextFactory: FC<TextFactoryProps> = props => {
 
   return (
     <span
-      className={composeClass(className)}
-      style={composeStyle([
-        composeStyle(style),
+      className={parseClassName(className)}
+      style={parseStyle([
+        style,
         fontConfigToCSS(fontConfig),
         { fontSize: size }
       ])}
